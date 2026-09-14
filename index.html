@@ -15,17 +15,19 @@
 <meta property="og:description" content="Cave familiale de vin naturel à 1 100 m d'altitude au Mont-Liban. Micro-cuvées, vendange à la main, sans sulfites ni additifs.">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
-<meta property="og:image" content="hero.jpg">
+<meta property="og:url" content="https://masha18.github.io/ddc/">
+<meta property="og:image" content="https://masha18.github.io/ddc/hero.jpg">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="720">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231a0707'/%3E%3Cpath d='M46 12C36 20 24 18 26 28c2 10 16 7 13 17-3 10-17 7-15 17' fill='none' stroke='%23b8924a' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='30' cy='23' r='5' fill='none' stroke='%23b8924a' stroke-width='2.5'/%3E%3Ccircle cx='36' cy='42' r='6' fill='none' stroke='%23b8924a' stroke-width='2.5'/%3E%3C/svg%3E">
 
+<link rel="canonical" href="https://masha18.github.io/ddc/">
 <link rel="preload" as="image" href="hero.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..600&family=Cinzel:wght@500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 /* ============ RESET & TOKENS ============ */
@@ -44,6 +46,9 @@
 
   --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --display:'Cinzel', Georgia, serif;
+  --logo:'Bodoni Moda', 'Didot', 'Bodoni MT', Georgia, serif;
+
+  --img-radius:6px;
   --sans:'Jost', 'Helvetica Neue', Arial, sans-serif;
 
   --gutter: clamp(1.25rem, 5vw, 4rem);
@@ -133,12 +138,13 @@ section[id]{ scroll-margin-top:calc(var(--topbar-h) + var(--nav-h)); }
   border-bottom:1px solid transparent;
 }
 .nav-logo{
-  font-family:var(--display); font-weight:500;
-  font-size:clamp(.95rem, 2.2vw, 1.2rem);
-  letter-spacing:.1em; text-transform:uppercase;
-  color:var(--cream); text-decoration:none;
+  font-family:var(--logo); font-weight:500;
+  font-size:clamp(.92rem, 2.3vw, 1.35rem);
+  letter-spacing:.045em; text-transform:uppercase;
+  color:var(--cream); text-decoration:none; white-space:nowrap;
   transition:color .5s var(--ease);
 }
+.logo-sm{ font-size:.68em; letter-spacing:.085em; }
 .nav-links{ display:flex; gap:clamp(1.25rem, 3vw, 2.75rem); list-style:none; }
 .nav-links a{
   position:relative; display:inline-block; padding-block:.4rem;
@@ -281,7 +287,7 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
 }
 
 /* ============ STORY ============ */
-.story-section{ padding-block:var(--section-y); }
+.story-section{ padding-block:var(--section-y); padding-bottom:clamp(3rem, 6vw, 5rem); }
 .story{
   display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
   gap:clamp(2.5rem, 5vw, 5rem); align-items:center;
@@ -299,32 +305,40 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
 .story p:last-child{ margin-bottom:0; }
 
 figure{ margin:0; }
-.plate{ position:relative; overflow:hidden; }
+.plate{ position:relative; overflow:hidden; border-radius:var(--img-radius); }
 .plate picture{ display:block; width:100%; height:100%; }
 .plate img{
   width:100%; height:100%; object-fit:cover;
-  filter:sepia(.08) contrast(1.02);
 }
-.plate--portrait{ aspect-ratio:3/4; max-height:78vh; }
-.plate--tall{ aspect-ratio:5/7; }
-.plate figcaption{
-  position:absolute; left:1.1rem; bottom:1.1rem;
-  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase;
-  color:rgba(245,237,224,.92);
-  background:rgba(15,4,4,.55); padding:.45rem .9rem;
-  -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
+.plate--portrait{ aspect-ratio:4/5; max-height:34rem; }
+.plate--tall{ aspect-ratio:2/3; }
+figure figcaption{
+  margin-top:.9rem;
+  font-family:var(--serif); font-style:italic; font-size:.95rem;
+  letter-spacing:.02em; color:var(--muted);
 }
 
 /* ============ PHILOSOPHY ============ */
 .philosophy-section{
   padding-block:var(--section-y);
+  padding-top:clamp(3rem, 6vw, 5rem);
   border-top:1px solid rgba(184,146,74,.16);
+}
+.philosophy-head{
+  display:grid; grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:clamp(1.75rem, 3.5vw, 3rem); align-items:end;
+  margin-bottom:clamp(2.5rem,5vw,3.5rem);
+}
+.philosophy-lead{ grid-column:1 / span 2; align-self:start; }
+.philosophy-figure{ grid-column:3 / span 2; }
+.philosophy-figure img{
+  width:100%; display:block; aspect-ratio:3/2; object-fit:cover; object-position:center 38%;
+  border-radius:var(--img-radius);
 }
 .philosophy-lead{
   font-family:var(--serif); font-style:italic;
   font-size:clamp(1.35rem, 3vw, 2.05rem); line-height:1.5;
-  margin-bottom:clamp(2.5rem,5vw,3.5rem); max-width:26ch;
-  text-wrap:balance;
+  max-width:26ch; text-wrap:balance;
 }
 .philosophy-grid{
   display:grid; grid-template-columns:repeat(4, minmax(0,1fr));
@@ -339,9 +353,15 @@ figure{ margin:0; }
 
 /* ============ WINES ============ */
 .wines-section{ background:var(--deep); padding-block:var(--section-y); }
-.wines-grid{
-  display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
-  gap:clamp(2.5rem, 5vw, 4.5rem); align-items:start;
+.wine-entry{
+  display:grid; grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(2rem, 5vw, 4.5rem); align-items:center;
+}
+.wine-bottle{ margin:0; }
+.wine-bottle img{
+  display:block; width:auto;
+  height:clamp(300px, 38vw, 520px);
+  filter:drop-shadow(0 26px 34px rgba(0,0,0,.6));
 }
 .wines-intro{
   font-family:var(--serif);
@@ -350,11 +370,11 @@ figure{ margin:0; }
   margin-bottom:clamp(2.5rem,4vw,3.25rem); max-width:32ch;
   text-wrap:balance;
 }
-.wine-entry{
-  padding-block:2.25rem;
+.wines-list > article{
+  padding-block:clamp(2.5rem, 5vw, 4rem);
   border-top:1px solid rgba(184,146,74,.2);
 }
-.wine-entry:last-child{ padding-bottom:0; }
+.wines-list > article:last-child{ padding-bottom:0; }
 .wine-entry-header{ display:flex; align-items:baseline; flex-wrap:wrap; gap:1rem; margin-bottom:.9rem; }
 .wine-entry-num{
   font-family:var(--serif); font-size:.85rem; letter-spacing:.14em;
@@ -368,7 +388,7 @@ figure{ margin:0; }
   letter-spacing:.045em;
 }
 .wine-entry-type{
-  margin-left:auto; text-align:right; max-width:22rem;
+  width:100%; margin-top:.15rem; margin-bottom:.5rem;
   font-size:.66rem; letter-spacing:.17em; text-transform:uppercase; line-height:1.7;
   color:rgba(212,170,90,.85);
 }
@@ -379,7 +399,6 @@ figure{ margin:0; }
 .wine-entry p:not(.wine-cepages){
   font-size:.97rem; color:rgba(245,237,224,.72); line-height:1.95; max-width:58ch;
 }
-.wines-figure .plate figcaption{ background:rgba(15,4,4,.6); }
 
 /* ============ CONTACT ============ */
 .contact-section{
@@ -423,7 +442,7 @@ figure{ margin:0; }
 .contact-vigneron picture{ display:block; flex-shrink:0; width:clamp(120px, 24vw, 190px); }
 .contact-vigneron-photo{
   width:100%; aspect-ratio:1; object-fit:cover; object-position:center top;
-  filter:sepia(.1) grayscale(.18);
+  border-radius:var(--img-radius);
   border:1px solid rgba(184,146,74,.28); flex-shrink:0;
 }
 .contact-vigneron-name{
@@ -450,8 +469,8 @@ footer{
   align-items:center; justify-content:space-between;
 }
 .footer-logo{
-  font-family:var(--display); font-weight:500; font-size:1.05rem;
-  color:rgba(245,237,224,.5); letter-spacing:.1em; text-transform:uppercase;
+  font-family:var(--logo); font-weight:500; font-size:1.15rem;
+  color:rgba(245,237,224,.55); letter-spacing:.045em; text-transform:uppercase;
 }
 .footer-meta{
   display:flex; flex-wrap:wrap; gap:.5rem 1.75rem; align-items:center;
@@ -481,6 +500,8 @@ footer{
 /* ============ RESPONSIVE ============ */
 @media (max-width:1024px){
   .philosophy-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .philosophy-head{ grid-template-columns:1fr; gap:2.25rem; }
+  .philosophy-lead, .philosophy-figure{ grid-column:1 / -1; }
 }
 
 @media (max-width:900px){
@@ -493,10 +514,10 @@ footer{
   .story{ grid-template-columns:1fr; gap:2.5rem; }
   .story-figure{ order:-1; }
   .plate--portrait{ max-height:62vh; }
-  .wines-grid{ grid-template-columns:1fr; }
-  .wines-figure{ order:2; }
-  .wine-entry-type{ margin-left:0; width:100%; max-width:none; text-align:left; margin-top:.2rem; margin-bottom:.45rem; }
-  .wines-figure .plate{ aspect-ratio:4/3; }
+  .wine-entry{ grid-template-columns:1fr; gap:1.5rem; justify-items:center; }
+  .wine-entry > div{ justify-self:stretch; }
+  .wine-entry .wine-bottle{ order:-1; }
+  .wine-bottle img{ height:clamp(260px, 52vw, 340px); }
   .contact-inner{ grid-template-columns:1fr; gap:3rem; }
   .footer-inner{ flex-direction:column; align-items:flex-start; text-align:left; }
 }
@@ -506,7 +527,6 @@ footer{
   .philosophy-grid{ grid-template-columns:1fr; gap:1.5rem; }
   .wine-entry-header{ gap:.6rem; }
   .contact-vigneron{ gap:1rem; }
-  .plate figcaption{ left:.75rem; bottom:.75rem; font-size:.62rem; padding:.35rem .7rem; }
 }
 
 /* ============ PRINT ============ */
@@ -537,7 +557,7 @@ footer{
 </div>
 
 <nav id="mainNav" aria-label="Principal">
-  <a href="#home" class="nav-logo">Domaine des Chênes LB</a>
+  <a href="#home" class="nav-logo">Domaine <span class="logo-sm">des</span> Chênes <span class="logo-sm">LB</span></a>
 
   <ul class="nav-links">
     <li><a href="#story"   class="t" data-fr="L'Histoire"  data-en="The Story">L'Histoire</a></li>
@@ -619,8 +639,8 @@ footer{
                  data-alt-en="The vineyard under snow, February 2021"
                  alt="Le vignoble sous la neige, février 2021">
           </picture>
-          <figcaption class="t" data-fr="Février 2021" data-en="February 2021">Février 2021</figcaption>
         </div>
+        <figcaption class="t" data-fr="Février 2021" data-en="February 2021">Février 2021</figcaption>
       </figure>
     </div>
   </section>
@@ -629,7 +649,19 @@ footer{
   <section class="philosophy-section" id="philosophy">
     <div class="wrap">
       <span class="label t reveal" data-fr="Notre philosophie" data-en="Our philosophy">Notre philosophie</span>
-      <h2 class="philosophy-lead t reveal" data-fr="Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif." data-en="In its purest form, natural wine is simply fermented grape juice — with nothing added.">Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif.</h2>
+      <div class="philosophy-head">
+        <h2 class="philosophy-lead t reveal" data-fr="Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif." data-en="In its purest form, natural wine is simply fermented grape juice — with nothing added.">Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif.</h2>
+        <figure class="philosophy-figure reveal">
+          <picture>
+            <source srcset="harvest.webp" type="image/webp">
+            <img src="harvest.jpg" width="620" height="980" loading="lazy" decoding="async"
+                 class="ta" data-alt-fr="Raisins pendant la vendange, août 2019"
+                 data-alt-en="Grapes during harvest, August 2019"
+                 alt="Raisins pendant la vendange, août 2019">
+          </picture>
+          <figcaption class="t" data-fr="Août 2019" data-en="August 2019">Août 2019</figcaption>
+        </figure>
+      </div>
 
       <div class="philosophy-grid">
         <div class="philo-item reveal">
@@ -654,25 +686,23 @@ footer{
 
   <!-- WINES -->
   <section class="wines-section" id="wines">
-    <div class="wrap wines-grid">
-      <figure class="wines-figure reveal">
-        <div class="plate plate--tall">
-          <picture>
-            <source srcset="harvest.webp" type="image/webp">
-            <img src="harvest.jpg" width="620" height="1276" loading="lazy" decoding="async"
-                 class="ta" data-alt-fr="Raisins pendant la vendange, août 2019"
-                 data-alt-en="Grapes during harvest, August 2019"
-                 alt="Raisins pendant la vendange, août 2019">
-          </picture>
-          <figcaption class="t" data-fr="Août 2019" data-en="August 2019">Août 2019</figcaption>
-        </div>
-      </figure>
-
+    <div class="wrap">
       <div>
         <span class="label label--dark t reveal" data-fr="Ce que nous faisons" data-en="What we make">Ce que nous faisons</span>
         <h2 class="wines-intro t reveal" data-fr="Deux vins. Deux expressions d'un même terroir — chacun fidèle à ses cépages, chacun façonné par la même main." data-en="Two wines. Two expressions of the same terroir — each faithful to its grapes, each shaped by the same hand.">Deux vins. Deux expressions d'un même terroir — chacun fidèle à ses cépages, chacun façonné par la même main.</h2>
 
+        <div class="wines-list">
         <article class="wine-entry reveal">
+          <figure class="wine-bottle">
+            <picture>
+              <source srcset="bottle-la-perdix.webp" type="image/webp">
+              <img src="bottle-la-perdix.png" width="311" height="1040" loading="lazy" decoding="async"
+                   class="ta" data-alt-fr="Bouteille de La Perdix — Domaine des Chênes"
+                   data-alt-en="Bottle of La Perdix — Domaine des Chênes"
+                   alt="Bouteille de La Perdix — Domaine des Chênes">
+            </picture>
+          </figure>
+          <div>
           <div class="wine-entry-header">
             <span class="wine-entry-num" aria-hidden="true">I</span>
             <h3 class="wine-entry-name">La Perdix</h3>
@@ -680,9 +710,20 @@ footer{
           </div>
           <p class="wine-cepages">Cabernet Sauvignon · Cabernet Franc</p>
           <p class="t" data-fr="Un rouge de vieilles vignes, profond et réservé, où le cassis, la mûre et la cerise noire se mêlent à la violette, au graphite, au cèdre et aux herbes sauvages. Il ne se livre jamais tout de suite : sa structure tannique s'assouplit lentement, révélant au fil des heures une minéralité pierreuse, quelques notes de tabac et de terre, puis une finale droite, profonde et persistante." data-en="A red from old vines, deep and reserved, where blackcurrant, blackberry and black cherry mingle with violet, graphite, cedar and wild herbs. It never reveals itself all at once: its tannic structure softens slowly, revealing over the hours a stony minerality, hints of tobacco and earth, and finally a focused, deep and lingering finish.">Un rouge de vieilles vignes, profond et réservé, où le cassis, la mûre et la cerise noire se mêlent à la violette, au graphite, au cèdre et aux herbes sauvages. Il ne se livre jamais tout de suite : sa structure tannique s'assouplit lentement, révélant au fil des heures une minéralité pierreuse, quelques notes de tabac et de terre, puis une finale droite, profonde et persistante.</p>
+          </div>
         </article>
 
         <article class="wine-entry reveal">
+          <figure class="wine-bottle">
+            <picture>
+              <source srcset="bottle-zenith.webp" type="image/webp">
+              <img src="bottle-zenith.png" width="311" height="1040" loading="lazy" decoding="async"
+                   class="ta" data-alt-fr="Bouteille de Zénith — Domaine des Chênes"
+                   data-alt-en="Bottle of Zénith — Domaine des Chênes"
+                   alt="Bouteille de Zénith — Domaine des Chênes">
+            </picture>
+          </figure>
+          <div>
           <div class="wine-entry-header">
             <span class="wine-entry-num" aria-hidden="true">II</span>
             <h3 class="wine-entry-name">Zénith</h3>
@@ -690,7 +731,9 @@ footer{
           </div>
           <p class="wine-cepages">Syrah · Malbec</p>
           <p class="t" data-fr="Un rouge sombre et généreux, où la mûre sauvage, la prune noire et la myrtille rencontrent la violette, le poivre noir et les épices, sur un fond légèrement fumé et cacaoté. Ample et velouté, il garde pourtant une belle tension, puis s'étire dans une finale longue et profonde, entre fruit mûr, épices et puissance contenue." data-en="A dark, generous red, where wild blackberry, black plum and blueberry melt into violet, black pepper and spice, with a subtle smoky, cocoa note lingering in the background. It unfolds slowly on the palate, broad and velvety, yet keeps a fine tension, then stretches into a long, deep finish, somewhere between ripe fruit, spice and restrained power.">Un rouge sombre et généreux, où la mûre sauvage, la prune noire et la myrtille rencontrent la violette, le poivre noir et les épices, sur un fond légèrement fumé et cacaoté. Ample et velouté, il garde pourtant une belle tension, puis s'étire dans une finale longue et profonde, entre fruit mûr, épices et puissance contenue.</p>
+          </div>
         </article>
+        </div>
       </div>
     </div>
   </section>
@@ -738,7 +781,7 @@ footer{
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Domaine des Chênes LB</div>
+    <div class="footer-logo">Domaine <span class="logo-sm">des</span> Chênes <span class="logo-sm">LB</span></div>
     <div class="footer-meta">
       <span class="t" data-fr="Vin naturel · Liban · Depuis 2018" data-en="Natural wine · Lebanon · Since 2018">Vin naturel · Liban · Depuis 2018</span>
       <a href="mailto:domaine.chenes@gmail.com">domaine.chenes@gmail.com</a>
