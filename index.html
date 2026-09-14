@@ -310,7 +310,7 @@ figure{ margin:0; }
 .plate img{
   width:100%; height:100%; object-fit:cover;
 }
-.plate--portrait{ aspect-ratio:4/5; max-height:34rem; }
+.plate--portrait{ aspect-ratio:4/5; }
 .plate--tall{ aspect-ratio:2/3; }
 figure figcaption{
   margin-top:.9rem;
@@ -325,16 +325,12 @@ figure figcaption{
   border-top:1px solid rgba(184,146,74,.16);
 }
 .philosophy-head{
-  display:grid; grid-template-columns:repeat(4, minmax(0,1fr));
-  gap:clamp(1.75rem, 3.5vw, 3rem); align-items:end;
+  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(2.5rem, 5vw, 5rem); align-items:start;
   margin-bottom:clamp(2.5rem,5vw,3.5rem);
 }
-.philosophy-lead{ grid-column:1 / span 2; align-self:start; }
-.philosophy-figure{ grid-column:3 / span 2; }
-.philosophy-figure img{
-  width:100%; display:block; aspect-ratio:3/2; object-fit:cover; object-position:center 38%;
-  border-radius:var(--img-radius);
-}
+.plate--square{ aspect-ratio:1; }
+.philosophy-figure figcaption{ text-align:right; }
 .philosophy-lead{
   font-family:var(--serif); font-style:italic;
   font-size:clamp(1.35rem, 3vw, 2.05rem); line-height:1.5;
@@ -354,14 +350,25 @@ figure figcaption{
 /* ============ WINES ============ */
 .wines-section{ background:var(--deep); padding-block:var(--section-y); }
 .wine-entry{
-  display:grid; grid-template-columns:auto minmax(0,1fr);
+  display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
   gap:clamp(2rem, 5vw, 4.5rem); align-items:center;
 }
-.wine-bottle{ margin:0; }
+.wine-scene{ margin:0; position:relative; }
+.wine-scene img{
+  width:100%; height:auto; display:block;
+  aspect-ratio:4/5; object-fit:cover; object-position:center;
+  border-radius:var(--img-radius);
+}
+.wine-scene::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  border-radius:var(--img-radius);
+  background:linear-gradient(90deg, rgba(26,7,7,0) 62%, rgba(26,7,7,.85) 100%);
+}
+.wine-bottle{ margin:0; height:clamp(320px, 32vw, 520px); justify-self:center; }
 .wine-bottle img{
-  display:block; width:auto;
-  height:clamp(300px, 38vw, 520px);
-  filter:drop-shadow(0 26px 34px rgba(0,0,0,.6));
+  display:block; width:100%; height:100%;
+  object-fit:contain; object-position:center;
+  filter:drop-shadow(0 18px 26px rgba(0,0,0,.55));
 }
 .wines-intro{
   font-family:var(--serif);
@@ -375,29 +382,43 @@ figure figcaption{
   border-top:1px solid rgba(184,146,74,.2);
 }
 .wines-list > article:last-child{ padding-bottom:0; }
-.wine-entry-header{ display:flex; align-items:baseline; flex-wrap:wrap; gap:1rem; margin-bottom:.9rem; }
+.wine-entry-header{ margin-bottom:.9rem; }
+.wine-estate{
+  font-family:var(--logo); font-weight:500;
+  font-size:clamp(.85rem, 1.5vw, 1.05rem);
+  letter-spacing:.13em; text-transform:uppercase;
+  color:rgba(245,237,224,.8); margin-bottom:.9rem;
+}
+.wine-estate .logo-sm{ font-size:.68em; letter-spacing:.16em; }
+.wine-rule{
+  border:0; height:1px; width:min(16rem, 60%); margin:1.5rem 0;
+  background:linear-gradient(90deg, rgba(184,146,74,.85), rgba(184,146,74,0));
+}
 .wine-entry-num{
   font-family:var(--serif); font-size:.85rem; letter-spacing:.14em;
   color:rgba(184,146,74,.65);
 }
 .wine-entry-name{
-  font-family:var(--serif); font-size:clamp(1.65rem, 3.3vw, 2.15rem);
-  color:var(--cream); line-height:1.15;
+  font-family:var(--logo); font-weight:400;
+  font-size:clamp(2.4rem, 5.2vw, 4rem);
+  color:var(--cream); line-height:1.05;
   -webkit-font-variant-caps:small-caps; font-variant-caps:small-caps;
-  font-variant:small-caps;            /* fallback for older engines */
-  letter-spacing:.045em;
+  font-variant:small-caps;
+  letter-spacing:.075em;
 }
 .wine-entry-type{
-  width:100%; margin-top:.15rem; margin-bottom:.5rem;
-  font-size:.66rem; letter-spacing:.17em; text-transform:uppercase; line-height:1.7;
-  color:rgba(212,170,90,.85);
+  display:block;
+  font-size:clamp(.68rem,1.15vw,.78rem); letter-spacing:.2em; text-transform:uppercase;
+  line-height:1.7; color:rgba(212,170,90,.92); margin-bottom:1.5rem;
 }
 .wine-cepages{
-  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
-  color:rgba(212,170,90,.75); margin-bottom:1.1rem;
+  font-size:clamp(.7rem,1.2vw,.82rem); letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(245,237,224,.72); margin:.9rem 0 0;
 }
-.wine-entry p:not(.wine-cepages){
-  font-size:.97rem; color:rgba(245,237,224,.72); line-height:1.95; max-width:58ch;
+.wine-entry p:not(.wine-cepages):not(.wine-estate){
+  font-family:var(--serif); font-weight:300;
+  font-size:clamp(1.02rem, 1.45vw, 1.18rem);
+  color:rgba(245,237,224,.82); line-height:1.8; max-width:46ch;
 }
 
 /* ============ CONTACT ============ */
@@ -408,6 +429,11 @@ figure figcaption{
 .contact-inner{
   display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
   gap:clamp(2.5rem, 6vw, 6rem); align-items:center;
+}
+.contact-left .label{ display:block; }
+.contact-left .label::after{
+  content:""; display:block; width:2.2rem; height:1px;
+  background:rgba(184,146,74,.55); margin-top:1rem; margin-bottom:1.9rem;
 }
 .contact-left h2{
   font-family:var(--serif); font-size:clamp(1.8rem, 3.6vw, 2.7rem);
@@ -438,24 +464,36 @@ figure figcaption{
 .contact-link:hover{ border-bottom-color:rgba(184,146,74,.45); }
 .contact-link:hover span{ color:var(--gold-lt); }
 
-.contact-vigneron{ display:flex; align-items:center; gap:1.4rem; margin-bottom:1.75rem; }
-.contact-vigneron picture{ display:block; flex-shrink:0; width:clamp(120px, 24vw, 190px); }
-.contact-vigneron-photo{
-  width:100%; aspect-ratio:1; object-fit:cover; object-position:center top;
-  border-radius:var(--img-radius);
-  border:1px solid rgba(184,146,74,.28); flex-shrink:0;
+/* pull quote replacing the portrait */
+.contact-quote{ text-align:center; max-width:34rem; margin-inline:auto; }
+.quote-top{
+  display:flex; align-items:center; justify-content:center; gap:1.1rem;
+  margin-bottom:1.9rem;
+}
+.quote-top::before, .quote-top::after{
+  content:""; height:1px; flex:0 1 8rem;
+  background:rgba(184,146,74,.45);
+}
+.quote-mark{
+  font-family:var(--serif); font-size:2.6rem; line-height:0;
+  color:var(--gold-lt); transform:translateY(.32em);
+}
+.contact-quote blockquote{
+  margin:0; font-family:var(--serif); font-style:italic; font-weight:300;
+  font-size:clamp(1.1rem, 1.9vw, 1.38rem); line-height:1.9;
+  color:rgba(245,237,224,.9);
+}
+.quote-divider{
+  border:0; height:1px; width:3.5rem; margin:1.9rem auto 1.35rem;
+  background:rgba(184,146,74,.6);
 }
 .contact-vigneron-name{
-  font-family:var(--serif); font-size:1.15rem;
+  font-family:var(--serif); font-size:clamp(1.05rem,1.7vw,1.2rem);
   color:rgba(245,237,224,.92); letter-spacing:.03em;
 }
 .contact-vigneron-title{
-  font-size:.68rem; letter-spacing:.24em; text-transform:uppercase;
-  color:rgba(212,170,90,.8); margin-top:.3rem;
-}
-.form-note{
-  font-family:var(--serif); font-style:italic;
-  font-size:.98rem; line-height:1.75; color:rgba(245,237,224,.5); max-width:40ch;
+  font-size:.68rem; letter-spacing:.26em; text-transform:uppercase;
+  color:rgba(212,170,90,.85); margin-top:.45rem;
 }
 
 /* ============ FOOTER ============ */
@@ -501,7 +539,7 @@ footer{
 @media (max-width:1024px){
   .philosophy-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
   .philosophy-head{ grid-template-columns:1fr; gap:2.25rem; }
-  .philosophy-lead, .philosophy-figure{ grid-column:1 / -1; }
+  .philosophy-figure figcaption{ text-align:left; }
 }
 
 @media (max-width:900px){
@@ -513,11 +551,12 @@ footer{
   .hero-inner{ max-width:none; }
   .story{ grid-template-columns:1fr; gap:2.5rem; }
   .story-figure{ order:-1; }
-  .plate--portrait{ max-height:62vh; }
-  .wine-entry{ grid-template-columns:1fr; gap:1.5rem; justify-items:center; }
+  .wine-entry{ grid-template-columns:1fr; gap:1.75rem; align-items:start; }
   .wine-entry > div{ justify-self:stretch; }
-  .wine-entry .wine-bottle{ order:-1; }
-  .wine-bottle img{ height:clamp(260px, 52vw, 340px); }
+  .wine-scene, .wine-bottle{ order:-1; }
+  .wine-scene::after{ background:none; }
+  .wine-bottle{ height:clamp(230px, 46vw, 320px); justify-self:center; }
+  .wine-bottle img{ width:auto; }
   .contact-inner{ grid-template-columns:1fr; gap:3rem; }
   .footer-inner{ flex-direction:column; align-items:flex-start; text-align:left; }
 }
@@ -526,7 +565,10 @@ footer{
   body{ font-size:.97rem; }
   .philosophy-grid{ grid-template-columns:1fr; gap:1.5rem; }
   .wine-entry-header{ gap:.6rem; }
-  .contact-vigneron{ gap:1rem; }
+  .contact-quote{ text-align:left; }
+  .quote-top{ justify-content:flex-start; }
+  .quote-top::before{ display:none; }
+  .quote-divider{ margin-inline:0; }
 }
 
 /* ============ PRINT ============ */
@@ -538,6 +580,7 @@ footer{
   .hero-title, .hero-sub, .hero-micro{ color:#000; }
   .wines-section, .contact-section, footer{ background:#fff; }
   .wine-entry-name, .contact-left h2, .contact-vigneron-name, .footer-logo{ color:#000; }
+  .contact-quote blockquote{ color:#333; }
   .wine-entry p:not(.wine-cepages), .contact-left > p, .form-note{ color:#333; }
   .plate img{ max-height:9cm; }
   a[href^="http"]::after, a[href^="mailto"]::after{ content:" (" attr(href) ")"; font-size:.75em; }
@@ -652,13 +695,15 @@ footer{
       <div class="philosophy-head">
         <h2 class="philosophy-lead t reveal" data-fr="Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif." data-en="In its purest form, natural wine is simply fermented grape juice — with nothing added.">Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif.</h2>
         <figure class="philosophy-figure reveal">
+          <div class="plate plate--square">
           <picture>
             <source srcset="harvest.webp" type="image/webp">
-            <img src="harvest.jpg" width="620" height="980" loading="lazy" decoding="async"
+            <img src="harvest.jpg" width="760" height="760" loading="lazy" decoding="async"
                  class="ta" data-alt-fr="Raisins pendant la vendange, août 2019"
                  data-alt-en="Grapes during harvest, August 2019"
                  alt="Raisins pendant la vendange, août 2019">
           </picture>
+          </div>
           <figcaption class="t" data-fr="Août 2019" data-en="August 2019">Août 2019</figcaption>
         </figure>
       </div>
@@ -693,43 +738,45 @@ footer{
 
         <div class="wines-list">
         <article class="wine-entry reveal">
-          <figure class="wine-bottle">
+          <figure class="wine-scene">
             <picture>
-              <source srcset="bottle-la-perdix.webp" type="image/webp">
-              <img src="bottle-la-perdix.png" width="311" height="1040" loading="lazy" decoding="async"
-                   class="ta" data-alt-fr="Bouteille de La Perdix — Domaine des Chênes"
-                   data-alt-en="Bottle of La Perdix — Domaine des Chênes"
-                   alt="Bouteille de La Perdix — Domaine des Chênes">
+              <source srcset="scene-la-perdix.webp" type="image/webp">
+              <img src="scene-la-perdix.jpg" width="744" height="941" loading="lazy" decoding="async"
+                   class="ta" data-alt-fr="Bouteille de La Perdix posée sur une souche, feuilles de vigne"
+                   data-alt-en="A bottle of La Perdix on a wooden stump, vine leaves behind"
+                   alt="Bouteille de La Perdix posée sur une souche, feuilles de vigne">
             </picture>
           </figure>
           <div>
+          <p class="wine-estate">Domaine <span class="logo-sm">des</span> Chênes</p>
           <div class="wine-entry-header">
-            <span class="wine-entry-num" aria-hidden="true">I</span>
             <h3 class="wine-entry-name">La Perdix</h3>
-            <span class="wine-entry-type t" data-fr="Structuré · Minéral · Élégant · Profond" data-en="Structured · Mineral · Elegant · Deep">Structuré · Minéral · Élégant · Profond</span>
+            <p class="wine-cepages">Cabernet Sauvignon · Cabernet Franc</p>
           </div>
-          <p class="wine-cepages">Cabernet Sauvignon · Cabernet Franc</p>
+          <hr class="wine-rule">
+          <span class="wine-entry-type t" data-fr="Structuré · Minéral · Élégant · Profond" data-en="Structured · Mineral · Elegant · Deep">Structuré · Minéral · Élégant · Profond</span>
           <p class="t" data-fr="Un rouge de vieilles vignes, profond et réservé, où le cassis, la mûre et la cerise noire se mêlent à la violette, au graphite, au cèdre et aux herbes sauvages. Il ne se livre jamais tout de suite : sa structure tannique s'assouplit lentement, révélant au fil des heures une minéralité pierreuse, quelques notes de tabac et de terre, puis une finale droite, profonde et persistante." data-en="A red from old vines, deep and reserved, where blackcurrant, blackberry and black cherry mingle with violet, graphite, cedar and wild herbs. It never reveals itself all at once: its tannic structure softens slowly, revealing over the hours a stony minerality, hints of tobacco and earth, and finally a focused, deep and lingering finish.">Un rouge de vieilles vignes, profond et réservé, où le cassis, la mûre et la cerise noire se mêlent à la violette, au graphite, au cèdre et aux herbes sauvages. Il ne se livre jamais tout de suite : sa structure tannique s'assouplit lentement, révélant au fil des heures une minéralité pierreuse, quelques notes de tabac et de terre, puis une finale droite, profonde et persistante.</p>
           </div>
         </article>
 
         <article class="wine-entry reveal">
-          <figure class="wine-bottle">
+          <figure class="wine-scene">
             <picture>
-              <source srcset="bottle-zenith.webp" type="image/webp">
-              <img src="bottle-zenith.png" width="311" height="1040" loading="lazy" decoding="async"
-                   class="ta" data-alt-fr="Bouteille de Zénith — Domaine des Chênes"
-                   data-alt-en="Bottle of Zénith — Domaine des Chênes"
-                   alt="Bouteille de Zénith — Domaine des Chênes">
+              <source srcset="scene-zenith.webp" type="image/webp">
+              <img src="scene-zenith.jpg" width="834" height="821" loading="lazy" decoding="async"
+                   class="ta" data-alt-fr="Bouteille de Zénith posée sur une souche, feuilles de vigne"
+                   data-alt-en="A bottle of Zénith on a wooden stump, vine leaves behind"
+                   alt="Bouteille de Zénith posée sur une souche, feuilles de vigne">
             </picture>
           </figure>
           <div>
+          <p class="wine-estate">Domaine <span class="logo-sm">des</span> Chênes</p>
           <div class="wine-entry-header">
-            <span class="wine-entry-num" aria-hidden="true">II</span>
             <h3 class="wine-entry-name">Zénith</h3>
-            <span class="wine-entry-type t" data-fr="Velouté · Épicé · Généreux · Intense" data-en="Velvety · Spiced · Generous · Intense">Velouté · Épicé · Généreux · Intense</span>
+            <p class="wine-cepages">Syrah · Malbec</p>
           </div>
-          <p class="wine-cepages">Syrah · Malbec</p>
+          <hr class="wine-rule">
+          <span class="wine-entry-type t" data-fr="Velouté · Épicé · Généreux · Intense" data-en="Velvety · Spiced · Generous · Intense">Velouté · Épicé · Généreux · Intense</span>
           <p class="t" data-fr="Un rouge sombre et généreux, où la mûre sauvage, la prune noire et la myrtille rencontrent la violette, le poivre noir et les épices, sur un fond légèrement fumé et cacaoté. Ample et velouté, il garde pourtant une belle tension, puis s'étire dans une finale longue et profonde, entre fruit mûr, épices et puissance contenue." data-en="A dark, generous red, where wild blackberry, black plum and blueberry melt into violet, black pepper and spice, with a subtle smoky, cocoa note lingering in the background. It unfolds slowly on the palate, broad and velvety, yet keeps a fine tension, then stretches into a long, deep finish, somewhere between ripe fruit, spice and restrained power.">Un rouge sombre et généreux, où la mûre sauvage, la prune noire et la myrtille rencontrent la violette, le poivre noir et les épices, sur un fond légèrement fumé et cacaoté. Ample et velouté, il garde pourtant une belle tension, puis s'étire dans une finale longue et profonde, entre fruit mûr, épices et puissance contenue.</p>
           </div>
         </article>
@@ -758,22 +805,15 @@ footer{
         </div>
       </div>
 
-      <div class="reveal">
-        <div class="contact-vigneron">
-          <picture>
-            <source srcset="rachad-samaha.webp" type="image/webp">
-            <img src="rachad-samaha.jpg" width="480" height="480" loading="lazy" decoding="async"
-                 class="contact-vigneron-photo ta"
-                 data-alt-fr="Rachad Samaha, vigneron" data-alt-en="Rachad Samaha, winemaker"
-                 alt="Rachad Samaha, vigneron">
-          </picture>
-          <div>
-            <p class="contact-vigneron-name">Rachad Samaha</p>
-            <p class="contact-vigneron-title t" data-fr="Vigneron" data-en="Winemaker">Vigneron</p>
-          </div>
-        </div>
-        <p class="form-note t" data-fr="Nous répondons à chaque message. Parfois le lendemain. Parfois après la vendange." data-en="We reply to every message. Sometimes the next day. Sometimes after the harvest.">Nous répondons à chaque message. Parfois le lendemain. Parfois après la vendange.</p>
-      </div>
+      <figure class="contact-quote reveal">
+        <div class="quote-top" aria-hidden="true"><span class="quote-mark">“</span></div>
+        <blockquote class="t" data-fr="“ Nous répondons à chaque message.<br>Parfois le lendemain.<br>Parfois après la vendange. ”" data-en="“ We reply to every message.<br>Sometimes the next day.<br>Sometimes after the harvest. ”">“ Nous répondons à chaque message.<br>Parfois le lendemain.<br>Parfois après la vendange. ”</blockquote>
+        <hr class="quote-divider">
+        <figcaption>
+          <p class="contact-vigneron-name">Rachad Samaha</p>
+          <p class="contact-vigneron-title t" data-fr="Vigneron" data-en="Winemaker">Vigneron</p>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
