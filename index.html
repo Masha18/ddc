@@ -54,7 +54,6 @@
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --section-y: clamp(4rem, 9vw, 7.5rem);
   --max: 1280px;
-  --topbar-h: 38px;
   --nav-h: 68px;
   --ease: cubic-bezier(.22,.61,.36,1);
 }
@@ -98,7 +97,7 @@ a{ color:inherit; }
 
 /* ============ LAYOUT ============ */
 .wrap{ width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter); }
-section[id]{ scroll-margin-top:calc(var(--topbar-h) + var(--nav-h)); }
+section[id]{ scroll-margin-top:var(--nav-h); }
 
 .label{
   display:block; font-family:var(--display); font-weight:500;
@@ -108,35 +107,30 @@ section[id]{ scroll-margin-top:calc(var(--topbar-h) + var(--nav-h)); }
 .label--dark{ color:var(--gold); }
 
 /* ============ TOP BAR ============ */
-.top-bar{
-  position:fixed; inset:0 0 auto 0; z-index:600; height:var(--topbar-h);
-  display:flex; align-items:center; justify-content:flex-end;
-  padding-inline:var(--gutter);
-  background:rgba(15,4,4,.92);
-  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-  border-bottom:1px solid rgba(184,146,74,.14);
-}
-.lang-toggle{ display:flex; align-items:center; border:1px solid rgba(184,146,74,.38); }
+
+.lang-toggle{ display:flex; align-items:center; gap:.9rem; }
 .lang-btn{
   background:none; border:none; cursor:pointer;
-  padding:.3rem .8rem; min-height:28px;
+  padding:.75rem .35rem; min-height:44px; min-width:44px;
   font-family:var(--sans); font-size:.7rem; font-weight:400;
   letter-spacing:.18em; text-transform:uppercase;
   color:rgba(245,237,224,.62); transition:color .25s, background .25s;
 }
-.lang-btn[aria-pressed="true"]{ background:rgba(184,146,74,.22); color:var(--gold-lt); }
+.lang-btn[aria-pressed="true"]{ color:#e3c483; }
 .lang-btn:hover{ color:var(--cream); }
-.lang-sep{ width:1px; height:14px; background:rgba(184,146,74,.28); }
 
 /* ============ NAV ============ */
 #mainNav{
-  position:fixed; top:var(--topbar-h); left:0; right:0; z-index:600;
+  position:fixed; top:0; left:0; right:0; z-index:600;
   height:var(--nav-h);
   display:flex; align-items:center; justify-content:space-between;
   padding-inline:var(--gutter);
-  transition:background .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
-  border-bottom:1px solid transparent;
+  background:rgba(38,12,12,.97);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(184,146,74,.16);
 }
+.nav-right{ display:flex; align-items:center; gap:clamp(1.5rem,3vw,2.75rem); }
+.nav-sep{ width:1px; height:1.15rem; background:rgba(184,146,74,.4); }
 .nav-logo{
   font-family:var(--logo); font-weight:500;
   font-size:clamp(.92rem, 2.3vw, 1.35rem);
@@ -160,16 +154,6 @@ section[id]{ scroll-margin-top:calc(var(--topbar-h) + var(--nav-h)); }
 .nav-links a:hover{ opacity:1; }
 .nav-links a:hover::after{ transform:scaleX(1); }
 
-#mainNav.scrolled{
-  background:rgba(245,237,224,.97);
-  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-  border-bottom-color:rgba(184,146,74,.2);
-  box-shadow:0 1px 24px rgba(44,26,14,.06);
-}
-#mainNav.scrolled .nav-logo{ color:var(--wine); }
-#mainNav.scrolled .nav-links a{ color:var(--text); opacity:.7; }
-#mainNav.scrolled .nav-links a:hover{ opacity:1; }
-#mainNav.scrolled .nav-toggle-bar{ background:var(--wine); }
 
 /* burger */
 .nav-toggle{
@@ -192,7 +176,7 @@ body.menu-open .nav-toggle-bar:nth-child(2){ transform:translateY(-5px) rotate(-
 .mobile-menu{
   position:fixed; inset:0; z-index:590;
   display:flex; flex-direction:column; justify-content:center;
-  padding:calc(var(--topbar-h) + var(--nav-h) + 1.5rem) var(--gutter) calc(var(--gutter) + 1rem);
+  padding:calc(var(--nav-h) + 1.5rem) var(--gutter) calc(var(--gutter) + 1rem);
   overflow-y:auto; overscroll-behavior:contain;
   background:#120505;
   opacity:0; visibility:hidden; pointer-events:none;
@@ -227,7 +211,7 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
 .hero{
   position:relative; display:flex; align-items:flex-end;
   min-height:100vh; min-height:100svh;
-  padding-top:calc(var(--topbar-h) + var(--nav-h));
+  padding-top:var(--nav-h);
   overflow:hidden;
 }
 .hero-media{
@@ -240,10 +224,8 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
 .hero-scrim{
   position:absolute; inset:0;
   background:
-    linear-gradient(to bottom, rgba(15,4,4,.8) 0%, rgba(15,4,4,.34) 17%, rgba(15,4,4,0) 36%),
-    linear-gradient(to top, rgba(15,4,4,.92) 0%, rgba(15,4,4,.58) 34%, rgba(15,4,4,.1) 68%, rgba(15,4,4,0) 100%),
-    linear-gradient(to right, rgba(15,4,4,.6) 0%, rgba(15,4,4,.18) 46%, rgba(15,4,4,0) 74%),
-    radial-gradient(ellipse at 22% 72%, rgba(92,26,26,.34) 0%, transparent 60%);
+    linear-gradient(to top, rgba(15,4,4,.72) 0%, rgba(15,4,4,.3) 30%, rgba(15,4,4,0) 62%),
+    linear-gradient(to right, rgba(15,4,4,.58) 0%, rgba(15,4,4,.22) 40%, rgba(15,4,4,0) 68%);
 }
 .hero-vine{
   position:absolute; right:-2rem; top:-2rem; width:52%; height:112%;
@@ -261,11 +243,13 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
   font-size:.74rem; letter-spacing:.32em; text-transform:uppercase;
   color:#e3c483; margin-bottom:1.75rem;
 }
+.hero-micro, .hero-title, .hero-sub{
+  text-shadow:0 1px 16px rgba(15,4,4,.72), 0 0 4px rgba(15,4,4,.5);
+}
 .hero-title{
   font-family:var(--serif);
-  font-size:clamp(2.3rem, 6.4vw, 4.5rem);
-  line-height:1.06; color:var(--cream); margin-bottom:1.75rem;
-  text-wrap:balance;
+  font-size:clamp(2.1rem, 5.2vw, 4rem);
+  line-height:1.12; color:var(--cream); margin-bottom:1.75rem;
 }
 .hero-title em{ font-style:italic; color:var(--gold-lt); }
 .hero-rule{ width:40px; height:1px; background:rgba(184,146,74,.5); margin-bottom:1.6rem; }
@@ -278,7 +262,8 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
   position:absolute; right:var(--gutter); bottom:clamp(2rem,5vh,3rem); z-index:2;
   display:flex; flex-direction:column; align-items:flex-end; gap:1.1rem;
   font-size:.68rem; letter-spacing:.22em; text-transform:uppercase;
-  color:rgba(245,237,224,.42);
+  color:rgba(245,237,224,.88);
+  text-shadow:0 1px 10px rgba(15,4,4,.85), 0 0 3px rgba(15,4,4,.7);
 }
 .hero-scroll{ display:flex; align-items:center; gap:.9rem; }
 .scroll-line{
@@ -452,7 +437,7 @@ figure figcaption{
   border-bottom:1px solid rgba(184,146,74,.14);
   transition:border-color .3s;
 }
-.contact-link:last-child{ border-bottom:none; }
+
 .contact-link svg{
   width:16px; height:16px; flex-shrink:0;
   stroke:var(--gold); fill:none; stroke-width:1.5;
@@ -467,11 +452,12 @@ figure figcaption{
 
 /* pull quote replacing the portrait */
 .contact-quote{ text-align:center; max-width:34rem; margin-inline:auto; }
-.quote-top{
+.quote-rule{
   display:flex; align-items:center; justify-content:center; gap:1.1rem;
   margin-bottom:1.9rem;
 }
-.quote-top::before, .quote-top::after{
+.quote-rule--end{ margin-bottom:0; margin-top:1.9rem; }
+.quote-rule::before, .quote-rule::after{
   content:""; height:1px; flex:0 1 8rem;
   background:rgba(184,146,74,.45);
 }
@@ -484,10 +470,7 @@ figure figcaption{
   font-size:clamp(1.1rem, 1.9vw, 1.38rem); line-height:1.9;
   color:rgba(245,237,224,.9);
 }
-.quote-divider{
-  border:0; height:1px; width:3.5rem; margin:1.9rem auto 1.35rem;
-  background:rgba(184,146,74,.6);
-}
+
 .contact-vigneron-name{
   font-family:var(--serif); font-size:clamp(1.05rem,1.7vw,1.2rem);
   color:rgba(245,237,224,.92); letter-spacing:.03em;
@@ -548,6 +531,9 @@ footer{
   .nav-toggle{ display:flex; }
   .hero-aside{ display:none; }
   .hero{ min-height:88vh; min-height:88svh; }
+  .hero-scrim{
+    background:linear-gradient(to top, rgba(15,4,4,.88) 0%, rgba(15,4,4,.62) 46%, rgba(15,4,4,.2) 80%, transparent 100%);
+  }
   .hero-inner{ max-width:none; }
   .story{ grid-template-columns:1fr; gap:2.5rem; }
   .wine-entry{ grid-template-columns:1fr; gap:1.75rem; align-items:start; }
@@ -557,6 +543,18 @@ footer{
   .wine-bottle{ height:clamp(230px, 46vw, 320px); justify-self:center; }
   .wine-bottle img{ width:auto; }
   .contact-inner{ grid-template-columns:1fr; gap:3rem; }
+}
+
+@media (max-width:480px){
+  .nav-logo{ font-size:.78rem; letter-spacing:.03em; }
+  .nav-right{ gap:.75rem; }
+  .nav-sep{ display:none; }
+  .lang-toggle{ gap:.15rem; }
+  .lang-btn{ padding:.7rem .3rem; min-width:34px; font-size:.64rem; letter-spacing:.12em; }
+  .hero-micro{ font-size:.62rem; letter-spacing:.2em; }
+  .hero-scrim{
+    background:linear-gradient(to top, rgba(15,4,4,.9) 0%, rgba(15,4,4,.72) 50%, rgba(15,4,4,.34) 82%, rgba(15,4,4,.1) 100%);
+  }
   .footer-inner{ flex-direction:column; align-items:flex-start; text-align:left; }
 }
 
@@ -565,9 +563,8 @@ footer{
   .philosophy-grid{ grid-template-columns:1fr; gap:1.5rem; }
   .wine-entry-header{ gap:.6rem; }
   .contact-quote{ text-align:left; }
-  .quote-top{ justify-content:flex-start; }
-  .quote-top::before{ display:none; }
-  .quote-divider{ margin-inline:0; }
+  .quote-rule{ justify-content:flex-start; }
+  .quote-rule::before{ display:none; }
 }
 
 /* ============ PRINT ============ */
@@ -590,22 +587,21 @@ footer{
 <body>
 <a class="skip t" href="#main" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
 
-<div class="top-bar">
-  <div class="lang-toggle" role="group" aria-label="Language / Langue">
-    <button class="lang-btn" id="btnFR" type="button" aria-pressed="true" lang="fr">FR</button>
-    <div class="lang-sep" aria-hidden="true"></div>
-    <button class="lang-btn" id="btnEN" type="button" aria-pressed="false" lang="en">EN</button>
-  </div>
-</div>
-
 <nav id="mainNav" aria-label="Principal">
   <a href="#home" class="nav-logo">Domaine <span class="logo-sm">des</span> Chênes <span class="logo-sm">LB</span></a>
 
-  <ul class="nav-links">
-    <li><a href="#story"   class="t" data-fr="L'Histoire"  data-en="The Story">L'Histoire</a></li>
-    <li><a href="#wines"   class="t" data-fr="Les Vins"    data-en="The Wines">Les Vins</a></li>
-    <li><a href="#contact" class="t" data-fr="Nous écrire" data-en="Write to us">Nous écrire</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#story"   class="t" data-fr="L'Histoire"  data-en="The Story">L'Histoire</a></li>
+      <li><a href="#wines"   class="t" data-fr="Les Vins"    data-en="The Wines">Les Vins</a></li>
+      <li><a href="#contact" class="t" data-fr="Nous écrire" data-en="Write to us">Nous écrire</a></li>
+    </ul>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <div class="lang-toggle" role="group" aria-label="Language / Langue">
+      <button class="lang-btn" id="btnFR" type="button" aria-pressed="true" lang="fr">FR</button>
+      <button class="lang-btn" id="btnEN" type="button" aria-pressed="false" lang="en">EN</button>
+    </div>
+  </div>
 
   <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">
     <span class="sr-only t" id="navToggleLabel" data-fr="Ouvrir le menu" data-en="Open menu">Ouvrir le menu</span>
@@ -635,10 +631,10 @@ footer{
   <section class="hero" id="home">
     <picture class="hero-media">
       <source srcset="hero.webp" type="image/webp">
-      <img src="hero.jpg" width="1280" height="720" fetchpriority="high" decoding="async"
-           class="ta" data-alt-fr="Le vignoble du Domaine des Chênes au Mont-Liban, juin 2020"
-           data-alt-en="The Domaine des Chênes vineyard in Mount Lebanon, June 2020"
-           alt="Le vignoble du Domaine des Chênes au Mont-Liban, juin 2020">
+      <img src="hero.jpg" width="1600" height="1067" fetchpriority="high" decoding="async"
+           class="ta" data-alt-fr="Le vignoble du Domaine des Chênes, face au mont Sannine"
+           data-alt-en="The Domaine des Chênes vineyard, facing Mount Sannine"
+           alt="Le vignoble du Domaine des Chênes, face au mont Sannine">
     </picture>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-vine" aria-hidden="true"></div>
@@ -646,18 +642,14 @@ footer{
     <div class="hero-content">
       <div class="hero-inner">
         <p class="hero-micro t" data-fr="Micro-cuvée · Liban · Depuis 2018" data-en="Micro-cuvée · Lebanon · Since 2018">Micro-cuvée · Liban · Depuis 2018</p>
-        <h1 class="hero-title t" data-fr="Il n'y a pas<br>de panneau.<br><em>Seulement la vigne.</em>" data-en="There is no<br>sign out front.<br><em>Only the vine.</em>">Il n'y a pas<br>de panneau.<br><em>Seulement la vigne.</em></h1>
+        <h1 class="hero-title t" data-fr="Il n'y a pas de panneau.<br><em>Seulement la vigne.</em>" data-en="There is no sign out front.<br><em>Only the vine.</em>">Il n'y a pas de panneau.<br><em>Seulement la vigne.</em></h1>
         <div class="hero-rule" aria-hidden="true"></div>
         <p class="hero-sub t" data-fr="Une cave familiale. Un seul vignoble. Quelques centaines de bouteilles par an." data-en="A family cellar. A single vineyard. A few hundred bottles a year.">Une cave familiale. Un seul vignoble. Quelques centaines de bouteilles par an.</p>
       </div>
     </div>
 
     <div class="hero-aside" aria-hidden="true">
-      <span class="t" data-fr="Le vignoble · Juin 2020" data-en="The vineyard · June 2020">Le vignoble · Juin 2020</span>
-      <span class="hero-scroll">
-        <span class="scroll-line"></span>
-        <span class="t" data-fr="Découvrir" data-en="Discover">Découvrir</span>
-      </span>
+      <span class="t" data-fr="Le vignoble · Mont Liban" data-en="The vineyard · Mount Lebanon">Le vignoble · Mont Liban</span>
     </div>
   </section>
 
@@ -797,21 +789,13 @@ footer{
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
             <span>domaine.chenes@gmail.com</span>
           </a>
-          <a href="https://wa.me/9613119634" class="contact-link" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-            <span>+961 3 119 634<span class="sr-only"> (WhatsApp)</span></span>
-          </a>
         </div>
       </div>
 
       <figure class="contact-quote reveal">
-        <div class="quote-top" aria-hidden="true"><span class="quote-mark">“</span></div>
+        <div class="quote-rule" aria-hidden="true"><span class="quote-mark">“</span></div>
         <blockquote class="t" data-fr="“ Nous répondons à chaque message.<br>Parfois le lendemain.<br>Parfois après la vendange. ”" data-en="“ We reply to every message.<br>Sometimes the next day.<br>Sometimes after the harvest. ”">“ Nous répondons à chaque message.<br>Parfois le lendemain.<br>Parfois après la vendange. ”</blockquote>
-        <hr class="quote-divider">
-        <figcaption>
-          <p class="contact-vigneron-name">Rachad Samaha</p>
-          <p class="contact-vigneron-title t" data-fr="Vigneron" data-en="Winemaker">Vigneron</p>
-        </figcaption>
+        <div class="quote-rule quote-rule--end" aria-hidden="true"><span class="quote-mark">”</span></div>
       </figure>
     </div>
   </section>
@@ -836,7 +820,6 @@ footer{
   "name":"Domaine des Chênes LB",
   "description":"Cave familiale de vin naturel à 1 100 m d'altitude au Mont-Liban. Micro-cuvées, vendange à la main, sans sulfites ni additifs.",
   "email":"domaine.chenes@gmail.com",
-  "telephone":"+961 3 119 634",
   "foundingDate":"2018",
   "address":{"@type":"PostalAddress","addressRegion":"Mont-Liban","addressCountry":"LB"},
   "makesOffer":[
@@ -929,20 +912,6 @@ document.documentElement.classList.add('js');
   window.addEventListener('resize', function () {
     if (window.innerWidth > 900 && body.classList.contains('menu-open')) setMenu(false);
   });
-
-  /* ---------- nav on scroll ---------- */
-  var nav = document.getElementById('mainNav');
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(function () {
-      nav.classList.toggle('scrolled', window.scrollY > 80);
-      ticking = false;
-    });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
   /* ---------- reveal on scroll ---------- */
   var items = document.querySelectorAll('.reveal');
