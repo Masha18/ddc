@@ -111,7 +111,7 @@ section[id]{ scroll-margin-top:var(--nav-h); }
 .lang-toggle{ display:flex; align-items:center; gap:.9rem; }
 .lang-btn{
   background:none; border:none; cursor:pointer;
-  padding:.75rem .35rem; min-height:44px; min-width:44px;
+  padding:.75rem .6rem; min-height:44px; min-width:44px;
   font-family:var(--sans); font-size:.7rem; font-weight:400;
   letter-spacing:.18em; text-transform:uppercase;
   color:rgba(245,237,224,.62); transition:color .25s, background .25s;
@@ -124,7 +124,7 @@ section[id]{ scroll-margin-top:var(--nav-h); }
   position:fixed; top:0; left:0; right:0; z-index:600;
   height:var(--nav-h);
   display:flex; align-items:center; justify-content:space-between;
-  padding-inline:var(--gutter);
+  padding-inline:max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
   background:rgba(38,12,12,.97);
   -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
   border-bottom:1px solid rgba(184,146,74,.16);
@@ -132,7 +132,7 @@ section[id]{ scroll-margin-top:var(--nav-h); }
 .nav-right{ display:flex; align-items:center; gap:clamp(1.5rem,3vw,2.75rem); }
 .nav-sep{ width:1px; height:1.15rem; background:rgba(184,146,74,.4); }
 .nav-logo{
-  display:inline-flex; align-items:center; gap:.7rem;
+  display:inline-flex; align-items:center; min-height:44px;
   font-family:var(--logo); font-weight:500;
   font-size:clamp(.92rem, 2.3vw, 1.35rem);
   letter-spacing:.045em; text-transform:uppercase;
@@ -140,7 +140,6 @@ section[id]{ scroll-margin-top:var(--nav-h); }
   transition:color .5s var(--ease);
 }
 .logo-sm{ font-size:.68em; letter-spacing:.085em; }
-.nav-mark{ width:15px; height:23px; color:var(--gold-lt); flex:0 0 auto; }
 .nav-links{ display:flex; gap:clamp(1.25rem, 3vw, 2.75rem); list-style:none; }
 .nav-links a{
   position:relative; display:inline-block; padding-block:.4rem;
@@ -203,7 +202,7 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
   margin-top:2.75rem; font-size:.74rem; letter-spacing:.14em;
   color:rgba(245,237,224,.5);
 }
-.mobile-menu-foot a{
+.mobile-menu-foot a{ display:inline-block; padding-block:.7rem;
   color:var(--gold-lt); text-decoration:none;
   font-family:var(--sans); word-break:break-word;
 }
@@ -498,11 +497,11 @@ figure figcaption{
 
 /* ============ FOOTER ============ */
 footer{
-  background:var(--ink); padding:2.5rem var(--gutter);
+  background:var(--ink); padding:2.5rem 0;
   border-top:1px solid rgba(184,146,74,.1);
 }
 .footer-inner{
-  max-width:var(--max); margin-inline:auto;
+  width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter);
   display:flex; flex-wrap:wrap; gap:1.25rem 2rem;
   align-items:center; justify-content:space-between;
 }
@@ -515,7 +514,7 @@ footer{
   font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
   color:rgba(245,237,224,.38);
 }
-.footer-meta a{ color:rgba(212,170,90,.8); text-decoration:none; }
+.footer-meta a{ display:inline-block; padding-block:.7rem; color:rgba(212,170,90,.8); text-decoration:none; }
 .footer-meta a:hover{ color:var(--gold-lt); text-decoration:underline; }
 
 /* ============ MOTION ============ */
@@ -549,7 +548,7 @@ footer{
   position:absolute; inset:2% -7% -7% 27%; width:88%; height:108%;
   z-index:-1; opacity:.16; pointer-events:none;
 }
-.ddc-shell{ width:min(1560px, calc(100% - 7vw)); margin:0 auto; }
+.ddc-shell{ width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter); }
 .ddc-main{
   display:grid; grid-template-columns:minmax(0,1.03fr) minmax(520px,.97fr);
   gap:clamp(44px, 6vw, 112px); align-items:center;
@@ -559,9 +558,10 @@ footer{
   align-self:stretch; display:flex; flex-direction:column; justify-content:center;
   min-width:0; padding-bottom:18px;
 }
+.ddc-copy > div:first-child{ padding-top:clamp(1.5rem, 7vh, 5.5rem); }
 .ddc-kicker{
   margin:0 0 26px; font-family:var(--serif); color:var(--gold-lt);
-  font-size:clamp(15px, 1.25vw, 21px); letter-spacing:.18em; text-transform:uppercase;
+  font-size:clamp(12px, .92vw, 16px); letter-spacing:.2em; text-transform:uppercase;
 }
 .ddc-short-rule{ width:46px; height:2px; background:var(--gold-lt); margin-bottom:42px; }
 .ddc-title{
@@ -574,7 +574,7 @@ footer{
 }
 .ddc-intro{
   margin:44px 0 0; font-family:var(--serif);
-  font-size:clamp(21px, 1.8vw, 29px); line-height:1.3; max-width:620px;
+  font-size:clamp(19px, 1.6vw, 25px); line-height:1.34; max-width:620px;
   color:rgba(245,237,224,.94);
 }
 .ddc-meta-bottom{ margin-top:auto; padding-top:64px; width:min(500px, 85%); }
@@ -615,26 +615,38 @@ footer{
 
 /* ---------- lightbox ---------- */
 .lightbox{
-  position:fixed; inset:0; z-index:900; display:none;
-  background:rgba(10,4,4,.95);
-  -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px);
+  position:fixed; inset:var(--nav-h) 0 0 0;      /* the site's header stays visible above it */
+  z-index:500; display:none;
+  background:
+    radial-gradient(circle at 42% 58%, rgba(124,50,40,.28), transparent 30%),
+    linear-gradient(110deg, #4a1718 0%, #2c0e0f 55%, #381011 100%);
 }
 .lightbox.open{ display:block; }
 .lightbox-scroll{
   width:100%; height:100%; overflow:auto; -webkit-overflow-scrolling:touch;
-  display:grid; place-items:center; padding:clamp(1rem,4vw,3rem);
+  display:grid; place-items:center;
+  padding:clamp(1.25rem,4vw,3rem) clamp(1.25rem,4vw,3rem) clamp(3.5rem,7vh,4.5rem);
+}
+.lightbox-frame{
+  padding:6px; border:1px solid var(--gold-lt);
+  background:rgba(12,6,6,.38); box-shadow:0 18px 55px rgba(0,0,0,.28);
 }
 .lightbox-img{
-  display:block; max-width:100%; max-height:calc(100vh - 6rem);
+  display:block; max-width:100%; max-height:calc(100vh - var(--nav-h) - 11rem);
   object-fit:contain; cursor:zoom-in;
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  border:1px solid rgba(31,17,14,.95);
 }
 .lightbox.zoomed .lightbox-scroll{ place-items:start; }
 .lightbox.zoomed .lightbox-img{ max-width:none; max-height:none; width:1200px; cursor:zoom-out; }
+.lightbox-cap{
+  margin:.85rem 0 0; text-align:center;
+  font-family:var(--serif); color:var(--gold-lt);
+  font-size:.82rem; letter-spacing:.115em; text-transform:uppercase;
+}
 .lightbox-close{
-  position:fixed; top:clamp(.75rem,2vw,1.5rem); right:clamp(.75rem,2vw,1.5rem);
+  position:absolute; top:clamp(.85rem,2vw,1.6rem); right:clamp(.85rem,2vw,1.6rem);
   width:46px; height:46px; display:grid; place-items:center;
-  background:rgba(12,6,6,.7); border:1px solid rgba(184,146,74,.4);
+  background:rgba(12,6,6,.55); border:1px solid rgba(184,146,74,.45);
   color:var(--cream); cursor:pointer; z-index:2;
   transition:color .3s var(--ease), border-color .3s var(--ease);
 }
@@ -642,7 +654,7 @@ footer{
 .lightbox-close:focus-visible{ outline:2px solid var(--gold-lt); outline-offset:3px; }
 .lightbox-close svg{ width:17px; height:17px; stroke:currentColor; stroke-width:1.5; }
 .lightbox-hint{
-  position:fixed; left:50%; bottom:clamp(.75rem,2.5vh,1.75rem); transform:translateX(-50%);
+  position:absolute; left:50%; bottom:clamp(.75rem,2.5vh,1.75rem); transform:translateX(-50%);
   font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
   color:rgba(245,237,224,.55); pointer-events:none;
 }
@@ -655,7 +667,7 @@ footer{
   object-position:50% 69%;                 /* keeps the sun flare out of frame, no edit to the photo */
 }
 .ddc-caption{
-  margin:12px 0 0 8px; color:var(--gold-lt); font-family:var(--serif);
+  margin:12px 8px 0 0; text-align:right; color:var(--gold-lt); font-family:var(--serif);
   font-size:15px; letter-spacing:.115em; text-transform:uppercase; white-space:nowrap;
 }
 .ddc-coordinates{
@@ -665,60 +677,78 @@ footer{
   letter-spacing:.11em; text-transform:uppercase; font-size:13px;
 }
 .ddc-coordinates .coord-text{
-  writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap;
-  color:inherit; text-decoration:none;
-  padding:.35rem .75rem; margin:-.35rem -.75rem;    /* 44px wide tap target */
-  transition:color .35s var(--ease);
+  display:flex; flex-direction:column-reverse; align-items:center; gap:.7rem;
+  color:var(--gold-lt); text-decoration:none;            /* gold reads as a link */
+  padding:.6rem .8rem; margin:-.6rem -.8rem;
+  transition:color .35s var(--ease), opacity .35s var(--ease);
+  opacity:.88;
 }
+.ddc-coordinates .coord-val{
+  writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap;
+  border-block-end:1px solid rgba(184,146,74,.45);       /* a standing underline, not hover-only */
+  padding-inline-end:3px;
+}
+.ddc-coordinates .coord-pin{ width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.5; flex:0 0 auto; }
 .ddc-coordinates a.coord-text:hover,
-.ddc-coordinates a.coord-text:focus-visible{ color:var(--gold-lt); }
-.ddc-coordinates a.coord-text:focus-visible{ outline:1px solid var(--gold-lt); outline-offset:3px; }
+.ddc-coordinates a.coord-text:focus-visible{ color:var(--gold-lt); opacity:1; }
+.ddc-coordinates a.coord-text:focus-visible{ outline:1px solid var(--gold-lt); outline-offset:4px; }
 .ddc-coordinates::after{
   content:""; display:block; width:1px; height:78px; margin-top:22px; background:rgba(184,146,74,.55);
 }
 
 @media (max-width:1440px){
-  .ddc-title{ font-size:clamp(46px, 4.6vw, 76px); }
+  .ddc-title{ font-size:clamp(42px, 4.2vw, 68px); }
 }
 /* between here and 1080 the two columns get too narrow to hold the headline,
    so the layout stacks instead of squeezing */
 @media (max-width:1400px) and (min-width:1081px){
-  .ddc-shell{ width:min(1240px, calc(100% - 56px)); }
   .ddc-main{ gap:clamp(36px, 4vw, 64px); }
   .ddc-visual-wrap{ padding-right:34px; max-width:560px; }
-  .ddc-intro{ font-size:clamp(19px, 1.7vw, 24px); }
+  .ddc-intro{ font-size:clamp(18px, 1.5vw, 22px); }
 }
 @media (max-width:1080px){
-  .ddc-shell{ width:min(720px, calc(100% - 48px)); }
   .ddc-hero{ min-height:auto; }
   .ddc-main{
     grid-template-columns:1fr; gap:44px;
     min-height:auto; padding:48px 0 60px;
   }
-  .ddc-copy{ min-height:auto; padding-bottom:0; }
-  .ddc-title{ max-width:none; font-size:clamp(44px, 7.4vw, 62px); }
+  /* let the copy's children sit directly in the grid so the photo can come
+     between the intro and the values line */
+  .ddc-copy{ display:contents; }
+  .ddc-copy > div:first-child{ padding-top:0; order:1; }
+  .ddc-visual-wrap{ order:2; }
+  .ddc-meta-bottom{ order:3; margin-top:0; }
+  .ddc-title{ max-width:none; font-size:clamp(40px, 6.8vw, 56px); }
   .ddc-title em{ white-space:normal; }
-  .ddc-intro{ font-size:clamp(19px, 2.6vw, 23px); margin-top:32px; }
+  .ddc-intro{ font-size:clamp(18px, 2.4vw, 21px); margin-top:30px; }
   .ddc-meta-bottom{ padding-top:40px; width:100%; }
   .ddc-visual-wrap{ max-width:520px; justify-self:start; padding-right:34px; }
+  .ddc-coordinates{
+    position:static; transform:none; height:auto;
+    display:block; text-align:right; margin-top:.55rem;
+  }
+  .ddc-coordinates::after{ display:none; }
+  .ddc-coordinates .coord-text{
+    display:inline-flex; flex-direction:row; align-items:center; gap:.5rem;
+    padding:.7rem .25rem; margin:0; font-size:12px; letter-spacing:.09em;
+  }
+  .ddc-coordinates .coord-val{ writing-mode:horizontal-tb; transform:none; padding-inline-end:0; }
   .ddc-photo-inner{ aspect-ratio:1.2/1; }
 }
 @media (max-width:620px){
-  .ddc-shell{ width:min(100% - 30px, 560px); }
-  .ddc-main{ padding:34px 0 44px; gap:36px; }
-  .ddc-kicker{ font-size:13px; margin-bottom:20px; }
-  .ddc-short-rule{ margin-bottom:31px; }
-  .ddc-title{ font-size:clamp(38px, 10.5vw, 54px); }
+  .ddc-main{ padding:26px 0 30px; gap:26px; }
+  .ddc-kicker{ font-size:11px; margin-bottom:16px; letter-spacing:.14em; }
+  .ddc-short-rule{ margin-bottom:24px; }
+  .ddc-title{ font-size:clamp(35px, 9.5vw, 48px); }
   .ddc-title em{ white-space:normal; }
-  .ddc-intro{ font-size:19px; margin-top:32px; }
-  .ddc-meta-bottom{ width:100%; padding-top:44px; }
-  .ddc-meta-words{ font-size:13px; }
+  .ddc-intro{ font-size:18px; margin-top:24px; }
+  .ddc-meta-bottom{ width:100%; padding-top:24px; }
+  .ddc-meta-words{ font-size:12px; gap:10px; letter-spacing:.06em; }
   .ddc-visual-wrap{ padding-right:23px; max-width:none; }
   .ddc-photo-frame{ padding:4px; }
-  .ddc-photo-inner{ aspect-ratio:.98/1; }
-  .ddc-caption{ white-space:normal; font-size:12px; }
-  .ddc-coordinates{ right:2px; height:290px; font-size:10px; letter-spacing:.08em; }
-  .ddc-coordinates .coord-text{ padding:.35rem .88rem; margin:-.35rem -.88rem; }
+  .ddc-photo-inner{ aspect-ratio:1.12/1; }
+  .ddc-caption{ white-space:normal; font-size:12px; text-align:right; }
+  .ddc-coordinates .coord-text{ font-size:11px; letter-spacing:.07em; padding:.78rem .25rem; }
 }
 
 /* ============ RESPONSIVE ============ */
@@ -732,6 +762,7 @@ footer{
   }
   .philosophy-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
   .philosophy-head{ grid-template-columns:1fr; gap:2.25rem; }
+  .philosophy-figure{ max-width:520px; }
 }
 
 @media (max-width:900px){
@@ -742,8 +773,10 @@ footer{
   .hero{ min-height:88vh; min-height:88svh; }
   .hero-inner{ max-width:none; }
   .story{ grid-template-columns:1fr; gap:2.5rem; }
+  .story-figure{ max-width:520px; }
   .wine-entry{ grid-template-columns:1fr; gap:1.75rem; align-items:start; }
   .wine-entry > div{ justify-self:stretch; }
+  .wine-scene{ max-width:520px; }
   .wine-scene, .wine-bottle{ order:-1; }
   .wine-scene::after{ background:none; }
   .wine-bottle{ height:clamp(230px, 46vw, 320px); justify-self:center; }
@@ -752,12 +785,11 @@ footer{
 }
 
 @media (max-width:480px){
-  .nav-logo{ font-size:.78rem; letter-spacing:.03em; gap:.45rem; }
-  .nav-mark{ width:11px; height:17px; }
+  .nav-logo{ font-size:.78rem; letter-spacing:.03em; }
   .nav-right{ gap:.75rem; }
   .nav-sep{ display:none; }
   .lang-toggle{ gap:.15rem; }
-  .lang-btn{ padding:.7rem .3rem; min-width:34px; font-size:.64rem; letter-spacing:.12em; }
+  .lang-btn{ padding:.7rem .42rem; min-width:42px; font-size:.64rem; letter-spacing:.1em; }
   .hero-micro{ font-size:.62rem; letter-spacing:.2em; }
   .hero-scrim{
     background:
@@ -797,10 +829,7 @@ footer{
 <a class="skip t" href="#main" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
 
 <nav id="mainNav" aria-label="Principal">
-  <a href="#home" class="nav-logo">
-    <svg class="nav-mark" viewBox="0 0 32 50" fill="none" aria-hidden="true"><path d="M16 2C13.6 6.8 9.4 8.4 5 10.4c2.9 2.3 5.9 3.4 9.3 3.7-3.5 2-7 3.2-11 3.4 3.7 3.5 7.4 5 11.1 5.2-3.4 2-7.2 3.3-11.2 3.8 3.4 3.6 7.4 5.3 11.6 5.6-2.5 1.6-5.4 2.9-8.3 3.5 3.4 3.2 6.7 4.5 9.5 4.9V48h2V40.5c2.8-.4 6.1-1.7 9.5-4.9-2.9-.6-5.8-1.9-8.3-3.5 4.2-.3 8.2-2 11.6-5.6-4-.5-7.8-1.8-11.2-3.8 3.7-.2 7.4-1.7 11.1-5.2-4-.2-7.5-1.4-11-3.4 3.4-.3 6.4-1.4 9.3-3.7C22.6 8.4 18.4 6.8 16 2Z" fill="currentColor"/></svg>
-    <span>Domaine <span class="logo-sm">des</span> Chênes <span class="logo-sm">LB</span></span>
-  </a>
+  <a href="#home" class="nav-logo">Domaine <span class="logo-sm">des</span> Chênes <span class="logo-sm">LB</span></a>
 
   <div class="nav-right">
     <ul class="nav-links">
@@ -863,7 +892,7 @@ footer{
       <div class="ddc-main">
         <div class="ddc-copy reveal">
           <div>
-            <p class="ddc-kicker t" data-fr="Micro-cuvée <span aria-hidden=&quot;true&quot;>·</span> Mont-Liban" data-en="Micro-cuvée <span aria-hidden=&quot;true&quot;>·</span> Mount Lebanon">Micro-cuvée <span aria-hidden="true">·</span> Mont-Liban</p>
+            <p class="ddc-kicker t" data-fr="Micro-cuvée <span aria-hidden=&quot;true&quot;>·</span> Mont-Liban <span aria-hidden=&quot;true&quot;>·</span> Depuis 2018" data-en="Micro-cuvée <span aria-hidden=&quot;true&quot;>·</span> Mount Lebanon <span aria-hidden=&quot;true&quot;>·</span> Since 2018">Micro-cuvée <span aria-hidden="true">·</span> Mont-Liban <span aria-hidden="true">·</span> Depuis 2018</p>
             <div class="ddc-short-rule" aria-hidden="true"></div>
 
             <h1 class="ddc-title t" data-fr="Des vignes d&#8217;altitude.<em>Un vin sans artifice.</em>" data-en="Vines at altitude.<em>Wine without artifice.</em>">Des vignes d&#8217;altitude.<em>Un vin sans artifice.</em></h1>
@@ -872,7 +901,7 @@ footer{
           </div>
 
           <div class="ddc-meta-bottom">
-            <div class="ddc-meta-words t" data-fr="<span>Famille</span><span class=&quot;dot&quot;>·</span><span>Terroir</span><span class=&quot;dot&quot;>·</span><span>Authenticité</span>" data-en="<span>Family</span><span class=&quot;dot&quot;>·</span><span>Terroir</span><span class=&quot;dot&quot;>·</span><span>Authenticity</span>"><span>Famille</span><span class="dot">·</span><span>Terroir</span><span class="dot">·</span><span>Authenticité</span></div>
+            <div class="ddc-meta-words t" data-fr="<span>Famille</span><span class=&quot;dot&quot;>·</span><span>Artisanat</span><span class=&quot;dot&quot;>·</span><span>Authenticité</span>" data-en="<span>Family</span><span class=&quot;dot&quot;>·</span><span>Craft</span><span class=&quot;dot&quot;>·</span><span>Authenticity</span>"><span>Famille</span><span class="dot">·</span><span>Artisanat</span><span class="dot">·</span><span>Authenticité</span></div>
           </div>
         </div>
 
@@ -899,7 +928,10 @@ footer{
           <div class="ddc-coordinates">
             <a class="coord-text" href="https://www.google.com/maps?q=33.931472,35.775528"
                target="_blank" rel="noopener"
-               aria-label="Voir le vignoble sur la carte — 33 degrés 55 minutes 53,3 secondes nord, 35 degrés 46 minutes 31,9 secondes est">33°55′53.3″N — 35°46′31.9″E</a>
+               aria-label="Voir le vignoble sur la carte — 33 degrés 55 minutes 53,3 secondes nord, 35 degrés 46 minutes 31,9 secondes est">
+              <svg class="coord-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4"/></svg>
+              <span class="coord-val">33°55′53.3″N — 35°46′31.9″E</span>
+            </a>
           </div>
         </div>
       </div>
@@ -1060,7 +1092,10 @@ footer{
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
   </button>
   <div class="lightbox-scroll" id="lightboxScroll">
-    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <figure style="margin:0">
+      <div class="lightbox-frame"><img class="lightbox-img" id="lightboxImg" src="" alt=""></div>
+      <figcaption class="lightbox-cap t" data-fr="Notre vignoble <span aria-hidden=&quot;true&quot;>·</span> Juillet 2021" data-en="Our vineyard <span aria-hidden=&quot;true&quot;>·</span> July 2021">Notre vignoble <span aria-hidden="true">·</span> Juillet 2021</figcaption>
+    </figure>
   </div>
   <p class="lightbox-hint t" data-fr="Cliquer pour zoomer · Échap pour fermer" data-en="Click to zoom · Esc to close">Cliquer pour zoomer · Échap pour fermer</p>
 </div>
