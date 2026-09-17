@@ -209,7 +209,7 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
 
 /* ============ HERO ============ */
 .hero{
-  position:relative; display:flex; align-items:flex-end;
+  position:relative; display:flex; align-items:center;
   min-height:100vh; min-height:100svh;
   padding-top:var(--nav-h);
   overflow:hidden;
@@ -219,15 +219,15 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
   transform:scale(1.03);
 }
 .hero-media img{
-  width:100%; height:100%; object-fit:cover; object-position:center top;
+  width:100%; height:100%; object-fit:cover; object-position:center center;
 }
 .hero-scrim{
   position:absolute; inset:0;
   background:
-    linear-gradient(to bottom, rgba(15,4,4,.58) 0%, rgba(15,4,4,.18) 16%, rgba(15,4,4,0) 34%),
-    linear-gradient(to top, rgba(15,4,4,.86) 0%, rgba(15,4,4,.46) 32%, rgba(15,4,4,.06) 66%, rgba(15,4,4,0) 100%),
-    linear-gradient(to right, rgba(15,4,4,.82) 0%, rgba(15,4,4,.34) 38%, rgba(15,4,4,0) 66%),
-    radial-gradient(ellipse 70% 55% at 16% 76%, rgba(15,4,4,.5) 0%, transparent 70%);
+    linear-gradient(to bottom, rgba(15,4,4,.68) 0%, rgba(15,4,4,.34) 16%, rgba(15,4,4,.1) 34%, rgba(15,4,4,0) 60%),
+    linear-gradient(to right, rgba(15,4,4,.92) 0%, rgba(15,4,4,.58) 32%, rgba(15,4,4,.12) 58%, rgba(15,4,4,0) 76%),
+    radial-gradient(ellipse 62% 58% at 12% 34%, rgba(15,4,4,.68) 0%, transparent 74%),
+    linear-gradient(to top, rgba(15,4,4,.36) 0%, rgba(15,4,4,.06) 24%, rgba(15,4,4,0) 48%);
 }
 .hero-vine{
   position:absolute; right:-2rem; top:-2rem; width:52%; height:112%;
@@ -240,7 +240,7 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
   width:100%; max-width:var(--max); margin-inline:auto;
   padding:0 var(--gutter) clamp(4rem, 11vh, 8rem);
 }
-.hero-inner{ max-width:min(48rem, 100%); }
+.hero-inner{ max-width:min(40rem, 100%); margin-bottom:clamp(2rem, 12vh, 9rem); }
 .hero-micro{
   font-size:.74rem; letter-spacing:.32em; text-transform:uppercase;
   color:#e3c483; margin-bottom:1.75rem;
@@ -255,7 +255,7 @@ body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
 .hero-sub{
   font-family:var(--serif); font-style:italic;
   font-size:clamp(1.1rem, 2.3vw, 1.35rem); line-height:1.6;
-  color:rgba(245,237,224,.9); max-width:34ch;
+  color:rgba(245,237,224,.9); max-width:none;
 }
 .hero-aside{
   position:absolute; right:var(--gutter); bottom:clamp(2rem,5vh,3rem); z-index:2;
@@ -520,6 +520,13 @@ footer{
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:1024px){
+  /* tall crops lose the dark tree on the left, so cover more broadly */
+  .hero-scrim{
+    background:
+      linear-gradient(to bottom, rgba(15,4,4,.72) 0%, rgba(15,4,4,.4) 16%, rgba(15,4,4,.16) 36%, rgba(15,4,4,.04) 60%),
+      linear-gradient(to right, rgba(15,4,4,.9) 0%, rgba(15,4,4,.66) 40%, rgba(15,4,4,.3) 70%, rgba(15,4,4,.12) 100%),
+      radial-gradient(ellipse 90% 60% at 20% 34%, rgba(15,4,4,.6) 0%, transparent 78%);
+  }
   .philosophy-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
   .philosophy-head{ grid-template-columns:1fr; gap:2.25rem; }
 }
@@ -549,7 +556,9 @@ footer{
   .lang-btn{ padding:.7rem .3rem; min-width:34px; font-size:.64rem; letter-spacing:.12em; }
   .hero-micro{ font-size:.62rem; letter-spacing:.2em; }
   .hero-scrim{
-    background:linear-gradient(to top, rgba(15,4,4,.92) 0%, rgba(15,4,4,.76) 50%, rgba(15,4,4,.38) 84%, rgba(15,4,4,.1) 100%);
+    background:
+      linear-gradient(to bottom, rgba(15,4,4,.72) 0%, rgba(15,4,4,.5) 26%, rgba(15,4,4,.34) 50%, rgba(15,4,4,.22) 100%),
+      radial-gradient(ellipse 120% 55% at 30% 34%, rgba(15,4,4,.5) 0%, transparent 78%);
   }
   .footer-inner{ flex-direction:column; align-items:flex-start; text-align:left; }
 }
@@ -627,7 +636,7 @@ footer{
   <section class="hero" id="home">
     <picture class="hero-media">
       <source srcset="hero.webp" type="image/webp">
-      <img src="hero.jpg" width="1600" height="1033" fetchpriority="high" decoding="async"
+      <img src="hero.jpg" width="1586" height="826" fetchpriority="high" decoding="async"
            class="ta" data-alt-fr="Les rangs du Domaine des Chênes, face au mont Sannine"
            data-alt-en="The rows at Domaine des Chênes, facing Mount Sannine"
            alt="Les rangs du Domaine des Chênes, face au mont Sannine">
@@ -637,16 +646,13 @@ footer{
 
     <div class="hero-content">
       <div class="hero-inner">
-        <p class="hero-micro t" data-fr="Micro-cuvée · Liban · Depuis 2018" data-en="Micro-cuvée · Lebanon · Since 2018">Micro-cuvée · Liban · Depuis 2018</p>
-        <h1 class="hero-title t" data-fr="Il n'y a pas de panneau.<br><em>Seulement la vigne.</em>" data-en="There is no sign out front.<br><em>Only the vine.</em>">Il n'y a pas de panneau.<br><em>Seulement la vigne.</em></h1>
+        <p class="hero-micro t" data-fr="Micro-cuvée / Mont-Liban" data-en="Micro-cuvée / Mount Lebanon">Micro-cuvée / Mont-Liban</p>
+        <h1 class="hero-title t" data-fr="Des vignes d'altitude.<br><em>Un vin sans artifice.</em>" data-en="Vines at altitude.<br><em>Wine without artifice.</em>">Des vignes d'altitude.<br><em>Un vin sans artifice.</em></h1>
         <div class="hero-rule" aria-hidden="true"></div>
-        <p class="hero-sub t" data-fr="Une cave familiale. Un seul vignoble. Quelques centaines de bouteilles par an." data-en="A family cellar. A single vineyard. A few hundred bottles a year.">Une cave familiale. Un seul vignoble. Quelques centaines de bouteilles par an.</p>
+        <p class="hero-sub t" data-fr="Une cave familiale. Un seul vignoble.<br>Quelques centaines de bouteilles par an." data-en="A family cellar. A single vineyard.<br>A few hundred bottles a year.">Une cave familiale. Un seul vignoble.<br>Quelques centaines de bouteilles par an.</p>
       </div>
     </div>
 
-    <div class="hero-aside" aria-hidden="true">
-      <span class="t" data-fr="Le vignoble · Mont Liban" data-en="The vineyard · Mount Lebanon">Le vignoble · Mont Liban</span>
-    </div>
 
   </section>
 
