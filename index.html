@@ -132,7 +132,7 @@ section[id]{ scroll-margin-top:var(--nav-h); }
 .nav-right{ display:flex; align-items:center; gap:clamp(1.5rem,3vw,2.75rem); }
 .nav-sep{ width:1px; height:1.15rem; background:rgba(184,146,74,.4); }
 .nav-logo{
-  display:inline-flex; align-items:center; min-height:44px;
+  display:inline-block; padding-block:.55rem;   /* height without a flex context, which eats the spaces */
   font-family:var(--logo); font-weight:500;
   font-size:clamp(.92rem, 2.3vw, 1.35rem);
   letter-spacing:.045em; text-transform:uppercase;
@@ -558,14 +558,14 @@ footer{
   align-self:stretch; display:flex; flex-direction:column; justify-content:center;
   min-width:0; padding-bottom:18px;
 }
-.ddc-copy > div:first-child{ padding-top:clamp(1.5rem, 7vh, 5.5rem); }
+.ddc-copy > div:first-child{ padding-top:clamp(3rem, 15vh, 11rem); }
 .ddc-kicker{
   margin:0 0 26px; font-family:var(--serif); color:var(--gold-lt);
   font-size:clamp(12px, .92vw, 16px); letter-spacing:.2em; text-transform:uppercase;
 }
 .ddc-short-rule{ width:46px; height:2px; background:var(--gold-lt); margin-bottom:42px; }
 .ddc-title{
-  margin:0; font-family:var(--serif); font-size:clamp(52px, 5.2vw, 92px);
+  margin:0; font-family:var(--serif); font-size:clamp(46px, 4.6vw, 54px);
   line-height:.95; font-weight:400; letter-spacing:-.03em; color:var(--cream); max-width:780px;
 }
 .ddc-title em{
@@ -584,8 +584,8 @@ footer{
 }
 .ddc-meta-words{
   display:flex; align-items:center; flex-wrap:wrap; gap:13px;
-  font-family:var(--serif); color:var(--gold-lt); font-size:16px;
-  letter-spacing:.09em; text-transform:uppercase;
+  font-family:var(--serif); color:var(--gold-lt);
+  font-size:clamp(12px, .92vw, 16px); letter-spacing:.2em; text-transform:uppercase;
 }
 .ddc-meta-words .dot{ opacity:.8; transform:translateY(-1px); }
 .ddc-visual-wrap{
@@ -622,6 +622,7 @@ footer{
     linear-gradient(110deg, #4a1718 0%, #2c0e0f 55%, #381011 100%);
 }
 .lightbox.open{ display:block; }
+.lightbox:focus{ outline:none; }
 .lightbox-scroll{
   width:100%; height:100%; overflow:auto; -webkit-overflow-scrolling:touch;
   display:grid; place-items:center;
@@ -644,13 +645,14 @@ footer{
   font-size:.82rem; letter-spacing:.115em; text-transform:uppercase;
 }
 .lightbox-close{
-  position:absolute; top:clamp(.85rem,2vw,1.6rem); right:clamp(.85rem,2vw,1.6rem);
+  position:absolute; top:clamp(1rem,2.2vh,1.75rem);
+  right:max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));  /* on the page grid */
   width:46px; height:46px; display:grid; place-items:center;
-  background:rgba(12,6,6,.55); border:1px solid rgba(184,146,74,.45);
-  color:var(--cream); cursor:pointer; z-index:2;
-  transition:color .3s var(--ease), border-color .3s var(--ease);
+  background:none; border:1px solid rgba(184,146,74,.28);
+  color:var(--gold-lt); cursor:pointer; z-index:2;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
 }
-.lightbox-close:hover{ color:var(--gold-lt); border-color:var(--gold-lt); }
+.lightbox-close:hover{ border-color:var(--gold-lt); background:rgba(184,146,74,.1); }
 .lightbox-close:focus-visible{ outline:2px solid var(--gold-lt); outline-offset:3px; }
 .lightbox-close svg{ width:17px; height:17px; stroke:currentColor; stroke-width:1.5; }
 .lightbox-hint{
@@ -668,10 +670,10 @@ footer{
 }
 .ddc-caption{
   margin:12px 8px 0 0; text-align:right; color:var(--gold-lt); font-family:var(--serif);
-  font-size:15px; letter-spacing:.115em; text-transform:uppercase; white-space:nowrap;
+  font-size:13px; letter-spacing:.125em; text-transform:uppercase; white-space:nowrap;
 }
 .ddc-coordinates{
-  position:absolute; top:48%; right:-8px; transform:translateY(-50%); height:360px;
+  position:absolute; top:39%; right:-8px; transform:translateY(-50%); height:360px;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   color:rgba(245,237,224,.83); font-family:var(--serif);
   letter-spacing:.11em; text-transform:uppercase; font-size:13px;
@@ -697,7 +699,7 @@ footer{
 }
 
 @media (max-width:1440px){
-  .ddc-title{ font-size:clamp(42px, 4.2vw, 68px); }
+  .ddc-title{ font-size:clamp(38px, 3.7vw, 60px); }
 }
 /* between here and 1080 the two columns get too narrow to hold the headline,
    so the layout stacks instead of squeezing */
@@ -718,7 +720,7 @@ footer{
   .ddc-copy > div:first-child{ padding-top:0; order:1; }
   .ddc-visual-wrap{ order:2; }
   .ddc-meta-bottom{ order:3; margin-top:0; }
-  .ddc-title{ max-width:none; font-size:clamp(40px, 6.8vw, 56px); }
+  .ddc-title{ max-width:none; font-size:clamp(36px, 6.1vw, 50px); }
   .ddc-title em{ white-space:normal; }
   .ddc-intro{ font-size:clamp(18px, 2.4vw, 21px); margin-top:30px; }
   .ddc-meta-bottom{ padding-top:40px; width:100%; }
@@ -739,15 +741,16 @@ footer{
   .ddc-main{ padding:26px 0 30px; gap:26px; }
   .ddc-kicker{ font-size:11px; margin-bottom:16px; letter-spacing:.14em; }
   .ddc-short-rule{ margin-bottom:24px; }
-  .ddc-title{ font-size:clamp(35px, 9.5vw, 48px); }
+  .ddc-title{ font-size:clamp(32px, 8.6vw, 43px); }
   .ddc-title em{ white-space:normal; }
   .ddc-intro{ font-size:18px; margin-top:24px; }
   .ddc-meta-bottom{ width:100%; padding-top:24px; }
-  .ddc-meta-words{ font-size:12px; gap:10px; letter-spacing:.06em; }
+  .ddc-meta-words{ font-size:11px; gap:8px; letter-spacing:.14em; }
+  @media (max-width:340px){ .ddc-meta-words{ letter-spacing:.08em; gap:6px; } }
   .ddc-visual-wrap{ padding-right:23px; max-width:none; }
   .ddc-photo-frame{ padding:4px; }
   .ddc-photo-inner{ aspect-ratio:1.12/1; }
-  .ddc-caption{ white-space:normal; font-size:12px; text-align:right; }
+  .ddc-caption{ white-space:normal; font-size:11px; text-align:right; }
   .ddc-coordinates .coord-text{ font-size:11px; letter-spacing:.07em; padding:.78rem .25rem; }
 }
 
@@ -1087,7 +1090,7 @@ footer{
 
 </main>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo du vignoble">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" tabindex="-1" aria-label="Photo du vignoble">
   <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fermer">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
   </button>
@@ -1229,7 +1232,7 @@ document.documentElement.classList.add('js');
       lastFocus = document.activeElement;
       box.classList.add('open');
       document.body.style.overflow = 'hidden';
-      close.focus();
+      box.focus({ preventScroll: true });
     }
 
     function shut() {
