@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Domaine des Chênes LB — Vin naturel du Mont-Liban</title>
+<meta name="description" id="metaDesc" content="Domaine des Chênes LB — cave familiale de vin naturel à 1 100 m d'altitude au Mont-Liban. Micro-cuvées, vendange à la main, sans sulfites ni additifs.">
+<meta name="theme-color" content="#1a0707">
+<meta name="author" content="Domaine des Chênes LB">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Domaine des Chênes LB">
+<meta property="og:title" content="Domaine des Chênes LB — Vin naturel du Mont-Liban">
+<meta property="og:description" content="Cave familiale de vin naturel à 1 100 m d'altitude au Mont-Liban. Micro-cuvées, vendange à la main, sans sulfites ni additifs.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://masha18.github.io/ddc/">
+<meta property="og:image" content="https://masha18.github.io/ddc/hero.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231a0707'/%3E%3Cpath d='M46 12C36 20 24 18 26 28c2 10 16 7 13 17-3 10-17 7-15 17' fill='none' stroke='%23b8924a' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='30' cy='23' r='5' fill='none' stroke='%23b8924a' stroke-width='2.5'/%3E%3Ccircle cx='36' cy='42' r='6' fill='none' stroke='%23b8924a' stroke-width='2.5'/%3E%3C/svg%3E">
+
+<link rel="canonical" href="https://masha18.github.io/ddc/">
+<link rel="preload" as="image" href="hero.webp" type="image/webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..600&family=Cinzel:wght@500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ============ RESET & TOKENS ============ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root{
+  --wine:#5c1a1a;
+  --deep:#1a0707;
+  --ink:#0f0404;
+  --cream:#f5ede0;
+  --parch:#e8d8c3;
+  --gold:#b8924a;
+  --gold-lt:#d4aa5a;
+  --text:#2c1a0e;
+  --muted:#6b503c;
+
+  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --display:'Cinzel', Georgia, serif;
+  --logo:'Bodoni Moda', 'Didot', 'Bodoni MT', Georgia, serif;
+
+  --img-radius:6px;
+  --sans:'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --section-y: clamp(4rem, 9vw, 7.5rem);
+  --max: 1280px;
+  --nav-h: 68px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:1rem;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* paper grain */
+body::before{
+  content:''; position:fixed; inset:0; z-index:500; pointer-events:none; opacity:.38;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+img{ display:block; max-width:100%; height:auto; }
+h1,h2,h3{ font-weight:300; }
+a{ color:inherit; }
+
+/* ============ ACCESSIBILITY ============ */
+:focus-visible{ outline:2px solid var(--gold-lt); outline-offset:3px; border-radius:2px; }
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:9999;
+  background:var(--deep); color:var(--cream); padding:.75rem 1.25rem;
+  font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; text-decoration:none;
+}
+.skip:focus{ left:.5rem; top:.5rem; }
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ============ LAYOUT ============ */
+.wrap{ width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter); }
+section[id]{ scroll-margin-top:var(--nav-h); }
+
+.label{
+  display:block; font-family:var(--display); font-weight:500;
+  font-size:.74rem; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--wine); margin-bottom:1.5rem;
+}
+.label--dark{ color:var(--gold); }
+
+/* ============ TOP BAR ============ */
+
+.lang-toggle{ display:flex; align-items:center; gap:.9rem; }
+.lang-btn{
+  background:none; border:none; cursor:pointer;
+  padding:.75rem .6rem; min-height:44px; min-width:44px;
+  font-family:var(--sans); font-size:.7rem; font-weight:400;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(245,237,224,.62); transition:color .25s, background .25s;
+}
+.lang-btn[aria-pressed="true"]{ color:#e3c483; }
+.lang-btn:hover{ color:var(--cream); }
+
+/* ============ NAV ============ */
+#mainNav{
+  position:fixed; top:0; left:0; right:0; z-index:600;
+  height:var(--nav-h);
+  display:flex; align-items:center; justify-content:space-between;
+  padding-inline:max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
+  background:rgba(38,12,12,.97);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(184,146,74,.16);
+}
+.nav-right{ display:flex; align-items:center; gap:clamp(1.5rem,3vw,2.75rem); }
+.nav-sep{ width:1px; height:1.15rem; background:rgba(184,146,74,.4); }
+.nav-logo{
+  display:inline-block; padding-block:.55rem;   /* height without a flex context, which eats the spaces */
+  font-family:var(--logo); font-weight:500;
+  font-size:clamp(.92rem, 2.3vw, 1.35rem);
+  letter-spacing:.045em; text-transform:uppercase;
+  color:var(--cream); text-decoration:none; white-space:nowrap;
+  transition:color .5s var(--ease);
+}
+.logo-sm{ font-size:.68em; letter-spacing:.085em; }
+.nav-links{ display:flex; gap:clamp(1.25rem, 3vw, 2.75rem); list-style:none; }
+.nav-links a{
+  position:relative; display:inline-block; padding-block:.4rem;
+  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--cream); text-decoration:none; opacity:.75;
+  transition:opacity .3s, color .5s var(--ease);
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; right:0; bottom:0; height:1px;
+  background:currentColor; transform:scaleX(0); transform-origin:left;
+  transition:transform .35s var(--ease);
+}
+.nav-links a:hover{ opacity:1; }
+.nav-links a:hover::after{ transform:scaleX(1); }
+
+
+/* burger */
+.nav-toggle{
+  display:none; align-items:center; justify-content:center;
+  width:44px; height:44px; margin-right:-10px;
+  background:none; border:none; cursor:pointer;
+}
+.nav-toggle-bars{ display:block; width:24px; height:12px; position:relative; }
+.nav-toggle-bar{
+  position:absolute; left:0; width:100%; height:1.5px; background:var(--cream);
+  transition:transform .35s var(--ease), opacity .2s, background .5s var(--ease);
+}
+.nav-toggle-bar:nth-child(1){ top:0; }
+.nav-toggle-bar:nth-child(2){ bottom:0; }
+body.menu-open .nav-toggle-bar{ background:var(--cream); }
+body.menu-open .nav-toggle-bar:nth-child(1){ transform:translateY(5px) rotate(45deg); }
+body.menu-open .nav-toggle-bar:nth-child(2){ transform:translateY(-5px) rotate(-45deg); }
+
+/* mobile panel */
+.mobile-menu{
+  position:fixed; inset:0; z-index:590;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:calc(var(--nav-h) + 1.5rem) var(--gutter) calc(var(--gutter) + 1rem);
+  overflow-y:auto; overscroll-behavior:contain;
+  background:#120505;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .4s var(--ease), visibility .4s;
+}
+body.menu-open .mobile-menu{ opacity:1; visibility:visible; pointer-events:auto; }
+.mobile-menu ul{ list-style:none; display:flex; flex-direction:column; gap:.35rem; }
+.mobile-menu nav a{
+  display:block; padding:.7rem 0; text-decoration:none;
+  font-family:var(--serif); font-size:clamp(1.8rem, 8vw, 2.6rem);
+  color:var(--cream); line-height:1.2;
+  border-bottom:1px solid rgba(184,146,74,.14);
+  transform:translateY(14px); opacity:0;
+  transition:transform .5s var(--ease), opacity .5s var(--ease), color .3s;
+}
+body.menu-open .mobile-menu nav a{ transform:none; opacity:1; }
+body.menu-open .mobile-menu li:nth-child(1) a{ transition-delay:.08s; }
+body.menu-open .mobile-menu li:nth-child(2) a{ transition-delay:.14s; }
+body.menu-open .mobile-menu li:nth-child(3) a{ transition-delay:.2s; }
+.mobile-menu nav a:hover{ color:var(--gold-lt); }
+.mobile-menu-foot{
+  margin-top:2.75rem; font-size:.74rem; letter-spacing:.14em;
+  color:rgba(245,237,224,.5);
+}
+.mobile-menu-foot a{ display:inline-block; padding-block:.7rem;
+  color:var(--gold-lt); text-decoration:none;
+  font-family:var(--sans); word-break:break-word;
+}
+.mobile-menu-foot a:hover{ text-decoration:underline; }
+
+/* ============ HERO ============ */
+.hero{
+  position:relative; display:flex; align-items:center;
+  min-height:100vh; min-height:100svh;
+  padding-top:var(--nav-h);
+  overflow:hidden;
+}
+.hero-media{
+  position:absolute; inset:0; display:block;
+  transform:scale(1.03);
+}
+.hero-media img{
+  width:100%; height:100%; object-fit:cover; object-position:center center;
+}
+.hero-inner, .hero-scrim{ display:none; }
+
+/* Narrow screens can only show the middle of a wide image, which slices the
+   wording baked into it. Below this width we show the scene without its text
+   and put the live, reflowing text back on top. */
+@media (max-width:1100px){
+  .hero-inner, .hero-scrim{ display:block; }
+  .hero-media img{ object-position:74% center; }
+  .hero-scrim{
+    background:
+      linear-gradient(to bottom, rgba(15,4,4,.68) 0%, rgba(15,4,4,.4) 18%, rgba(15,4,4,.18) 40%, rgba(15,4,4,.06) 70%),
+      linear-gradient(to right, rgba(15,4,4,.88) 0%, rgba(15,4,4,.62) 42%, rgba(15,4,4,.3) 74%, rgba(15,4,4,.14) 100%),
+      radial-gradient(ellipse 110% 58% at 24% 42%, rgba(15,4,4,.58) 0%, transparent 78%);
+  }
+}
+.hero-scrim{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to bottom, rgba(15,4,4,.68) 0%, rgba(15,4,4,.34) 16%, rgba(15,4,4,.1) 34%, rgba(15,4,4,0) 60%),
+    linear-gradient(to right, rgba(15,4,4,.92) 0%, rgba(15,4,4,.58) 32%, rgba(15,4,4,.12) 58%, rgba(15,4,4,0) 76%),
+    radial-gradient(ellipse 62% 58% at 12% 34%, rgba(15,4,4,.68) 0%, transparent 74%),
+    linear-gradient(to top, rgba(15,4,4,.36) 0%, rgba(15,4,4,.06) 24%, rgba(15,4,4,0) 48%);
+}
+.hero-vine{
+  position:absolute; right:-2rem; top:-2rem; width:52%; height:112%;
+  opacity:.07; pointer-events:none;
+  background-repeat:no-repeat; background-size:contain; background-position:right top;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 700'%3E%3Cpath d='M380,10 C300,80 180,60 200,150 C220,240 350,200 320,310 C290,420 140,380 160,500 C180,620 320,580 300,690' fill='none' stroke='%23b8924a' stroke-width='2'/%3E%3Ccircle cx='220' cy='100' r='40' fill='none' stroke='%23b8924a' stroke-width='1.5'/%3E%3Ccircle cx='290' cy='240' r='30' fill='none' stroke='%23b8924a' stroke-width='1.5'/%3E%3Ccircle cx='200' cy='380' r='50' fill='none' stroke='%23b8924a' stroke-width='1.5'/%3E%3Ccircle cx='250' cy='550' r='35' fill='none' stroke='%23b8924a' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+.hero-content{
+  position:relative; z-index:2;
+  width:100%; max-width:var(--max); margin-inline:auto;
+  padding:0 var(--gutter) clamp(4rem, 11vh, 8rem);
+}
+.hero-inner{ max-width:min(40rem, 100%); margin-bottom:clamp(0rem, 4vh, 3rem); }
+.hero-micro{
+  font-size:.7rem; letter-spacing:.3em; text-transform:uppercase;
+  color:#e3c483; margin-bottom:1.4rem;
+}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(1.85rem, 4.1vw, 3.2rem);
+  line-height:1.18; color:var(--cream); margin-bottom:1.5rem;
+}
+.hero-title em{ font-style:italic; color:var(--gold-lt); }
+.hero-rule{ width:36px; height:1px; background:rgba(184,146,74,.5); margin-bottom:1.35rem; }
+.hero-sub{
+  font-family:var(--serif); font-style:italic;
+  font-size:clamp(1.02rem, 1.9vw, 1.18rem); line-height:1.7;
+  color:rgba(245,237,224,.9); max-width:none;
+}
+.hero-aside{
+  position:absolute; right:var(--gutter); bottom:clamp(2rem,5vh,3rem); z-index:2;
+  display:flex; flex-direction:column; align-items:flex-end; gap:1.1rem;
+  font-size:.68rem; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(245,237,224,.88);
+  text-shadow:0 1px 10px rgba(15,4,4,.85), 0 0 3px rgba(15,4,4,.7);
+}
+.hero-scroll{ display:flex; align-items:center; gap:.9rem; }
+.scroll-line{
+  width:40px; height:1px;
+  background:linear-gradient(to right, rgba(184,146,74,.55), transparent);
+  animation:scrollPulse 2.6s ease infinite;
+}
+
+/* ============ STORY ============ */
+.story-section{ padding-block:var(--section-y); padding-bottom:clamp(3rem, 6vw, 5rem); }
+.story{
+  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(2.5rem, 5vw, 5rem); align-items:center;
+}
+.story h2{
+  font-family:var(--serif); font-size:clamp(1.7rem, 3.4vw, 2.5rem);
+  line-height:1.24; margin-bottom:2rem; max-width:22ch;
+  text-wrap:balance;
+}
+.story h2 em{ font-style:italic; color:var(--wine); }
+.story p{
+  color:var(--muted); font-size:1.03rem; line-height:1.85;
+  margin-bottom:1.35rem; max-width:62ch;
+}
+.story p:last-child{ margin-bottom:0; }
+
+figure{ margin:0; }
+.plate{ position:relative; overflow:hidden; border-radius:var(--img-radius); }
+.plate picture{ display:block; width:100%; height:100%; }
+.plate img{
+  width:100%; height:100%; object-fit:cover;
+}
+.plate--portrait{ aspect-ratio:4/5; }
+.plate--tall{ aspect-ratio:2/3; }
+figure figcaption{
+  margin-top:.9rem;
+  font-family:var(--serif); font-style:italic; font-size:.95rem;
+  letter-spacing:.02em; color:var(--muted);
+}
+
+/* ============ PHILOSOPHY ============ */
+.philosophy-section{
+  padding-block:var(--section-y);
+  padding-top:clamp(3rem, 6vw, 5rem);
+  border-top:1px solid rgba(184,146,74,.16);
+}
+.philosophy-head{
+  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(2.5rem, 5vw, 5rem); align-items:start;
+  margin-bottom:clamp(2.5rem,5vw,3.5rem);
+}
+.plate--square{ aspect-ratio:1; }
+.philosophy-figure figcaption{ text-align:left; }
+.philosophy-lead{
+  font-family:var(--serif); font-style:italic;
+  font-size:clamp(1.35rem, 3vw, 2.05rem); line-height:1.5;
+  max-width:26ch; text-wrap:balance;
+}
+.philosophy-grid{
+  display:grid; grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:clamp(1.75rem, 3.5vw, 3rem);
+}
+.philo-item{ border-top:1px solid rgba(184,146,74,.28); padding-top:1.25rem; }
+.philo-key{
+  display:block; font-size:.7rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.9rem;
+}
+.philo-item p{ font-size:.94rem; color:var(--muted); line-height:1.85; }
+
+/* ============ WINES ============ */
+.wines-section{ background:var(--deep); padding-block:var(--section-y); }
+.wine-entry{
+  display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
+  gap:clamp(2rem, 5vw, 4.5rem); align-items:center;
+}
+.wine-scene{ margin:0; position:relative; }
+.wine-scene img{
+  width:100%; height:auto; display:block;
+  aspect-ratio:4/5; object-fit:cover; object-position:center;
+  border-radius:var(--img-radius);
+}
+.wine-scene::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  border-radius:var(--img-radius);
+  background:linear-gradient(90deg, rgba(26,7,7,0) 62%, rgba(26,7,7,.85) 100%);
+}
+.wine-bottle{ margin:0; height:clamp(320px, 32vw, 520px); justify-self:center; }
+.wine-bottle img{
+  display:block; width:100%; height:100%;
+  object-fit:contain; object-position:center;
+  filter:drop-shadow(0 18px 26px rgba(0,0,0,.55));
+}
+.wines-intro{
+  font-family:var(--serif);
+  font-size:clamp(1.35rem, 2.8vw, 2rem);
+  line-height:1.45; color:rgba(245,237,224,.94);
+  margin-bottom:clamp(2.5rem,4vw,3.25rem); max-width:32ch;
+  text-wrap:balance;
+}
+.wines-list > article{
+  padding-block:clamp(2.5rem, 5vw, 4rem);
+  border-top:1px solid rgba(184,146,74,.2);
+}
+.wines-list > article:last-child{ padding-bottom:0; }
+.wine-entry-header{ margin-bottom:.9rem; }
+.wine-estate{
+  font-family:var(--logo); font-weight:500;
+  font-size:clamp(.85rem, 1.5vw, 1.05rem);
+  letter-spacing:.13em; text-transform:uppercase;
+  color:rgba(245,237,224,.8); margin-bottom:.9rem;
+}
+.wine-estate .logo-sm{ font-size:.68em; letter-spacing:.16em; }
+.wine-rule{
+  border:0; height:1px; width:min(16rem, 60%); margin:1.5rem 0;
+  background:linear-gradient(90deg, rgba(184,146,74,.85), rgba(184,146,74,0));
+}
+.wine-entry-num{
+  font-family:var(--serif); font-size:.85rem; letter-spacing:.14em;
+  color:rgba(184,146,74,.65);
+}
+.wine-entry-name{
+  font-family:var(--logo); font-weight:400;
+  font-size:clamp(2.4rem, 5.2vw, 4rem);
+  color:var(--cream); line-height:1.05;
+  -webkit-font-variant-caps:small-caps; font-variant-caps:small-caps;
+  font-variant:small-caps;
+  letter-spacing:.075em;
+}
+.wine-entry-type{
+  display:block;
+  font-size:clamp(.68rem,1.15vw,.78rem); letter-spacing:.2em; text-transform:uppercase;
+  line-height:1.7; color:rgba(212,170,90,.92); margin-bottom:1.5rem;
+}
+.wine-cepages{
+  font-size:clamp(.7rem,1.2vw,.82rem); letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(245,237,224,.72); margin:.9rem 0 0;
+}
+.wine-entry p:not(.wine-cepages):not(.wine-estate){
+  font-family:var(--serif); font-weight:300;
+  font-size:clamp(1.02rem, 1.45vw, 1.18rem);
+  color:rgba(245,237,224,.82); line-height:1.8; max-width:46ch;
+}
+
+/* ============ CONTACT ============ */
+.contact-section{
+  background:var(--deep); padding-block:var(--section-y);
+  border-top:1px solid rgba(184,146,74,.16);
+}
+.contact-inner{
+  display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:clamp(2.5rem, 6vw, 6rem); align-items:center;
+}
+.contact-left .label{ display:block; }
+.contact-left .label::after{
+  content:""; display:block; width:2.2rem; height:1px;
+  background:rgba(184,146,74,.55); margin-top:1rem; margin-bottom:1.9rem;
+}
+.contact-left h2{
+  font-family:var(--serif); font-size:clamp(1.8rem, 3.6vw, 2.7rem);
+  color:var(--cream); line-height:1.22; margin-bottom:1.6rem; max-width:16ch;
+}
+.contact-left h2 em{ font-style:italic; color:var(--gold-lt); }
+.contact-left > p{
+  font-family:var(--serif); font-size:clamp(1.05rem,2.2vw,1.25rem);
+  color:rgba(245,237,224,.82); line-height:1.7; max-width:46ch;
+}
+.contact-links{ display:flex; flex-direction:column; gap:.25rem; margin-top:2.5rem; }
+.contact-link{
+  display:flex; align-items:center; gap:.9rem;
+  min-height:48px; padding:.55rem 0; text-decoration:none;
+  border-bottom:1px solid rgba(184,146,74,.14);
+  transition:border-color .3s;
+}
+
+.contact-link svg{
+  width:16px; height:16px; flex-shrink:0;
+  stroke:var(--gold); fill:none; stroke-width:1.5;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.contact-link span{
+  font-family:var(--serif); font-size:1.05rem;
+  color:rgba(245,237,224,.88); transition:color .3s;
+}
+.contact-link:hover{ border-bottom-color:rgba(184,146,74,.45); }
+.contact-link:hover span{ color:var(--gold-lt); }
+
+/* pull quote replacing the portrait */
+.contact-quote{ text-align:center; max-width:34rem; margin-inline:auto; }
+.quote-rule{
+  display:flex; align-items:center; justify-content:center; gap:1.1rem;
+  margin-bottom:1.9rem;
+}
+.quote-rule--end{ margin-bottom:0; margin-top:1.9rem; }
+.quote-rule::before, .quote-rule::after{
+  content:""; height:1px; flex:0 1 8rem;
+  background:rgba(184,146,74,.45);
+}
+.quote-mark{
+  font-family:var(--serif); font-size:2.6rem; line-height:0;
+  color:var(--gold-lt); transform:translateY(.32em);
+}
+.contact-quote blockquote{
+  margin:0; font-family:var(--serif); font-style:italic; font-weight:300;
+  font-size:clamp(1.1rem, 1.9vw, 1.38rem); line-height:1.9;
+  color:rgba(245,237,224,.9);
+}
+
+.contact-vigneron-name{
+  font-family:var(--serif); font-size:clamp(1.05rem,1.7vw,1.2rem);
+  color:rgba(245,237,224,.92); letter-spacing:.03em;
+}
+.contact-vigneron-title{
+  font-size:.68rem; letter-spacing:.26em; text-transform:uppercase;
+  color:rgba(212,170,90,.85); margin-top:.45rem;
+}
+
+/* ============ FOOTER ============ */
+footer{
+  background:var(--ink); padding:2.5rem 0;
+  border-top:1px solid rgba(184,146,74,.1);
+}
+.footer-inner{
+  width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter);
+  display:flex; flex-wrap:wrap; gap:1.25rem 2rem;
+  align-items:center; justify-content:space-between;
+}
+.footer-logo{
+  font-family:var(--logo); font-weight:500; font-size:1.15rem;
+  color:rgba(245,237,224,.55); letter-spacing:.045em; text-transform:uppercase;
+}
+.footer-meta{
+  display:flex; flex-wrap:wrap; gap:.5rem 1.75rem; align-items:center;
+  font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(245,237,224,.38);
+}
+.footer-meta a{ display:inline-block; padding-block:.7rem; color:rgba(212,170,90,.8); text-decoration:none; }
+.footer-meta a:hover{ color:var(--gold-lt); text-decoration:underline; }
+
+/* ============ MOTION ============ */
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(24px);} to{ opacity:1; transform:none;} }
+@keyframes scrollPulse{ 0%,100%{ opacity:.35; } 50%{ opacity:.9; } }
+
+.js .hero-inner{ animation:fadeUp 1.4s var(--ease) both; }
+.js .reveal{ opacity:0; transform:translateY(20px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.js .reveal.visible{ opacity:1; transform:none; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .js .reveal{ opacity:1; transform:none; }
+  .hero-media{ transform:none; }
+}
+
+
+/* ============ HERO (split layout) ============ */
+.ddc-hero{
+  position:relative; min-height:100svh; overflow:hidden; isolation:isolate;
+  padding-top:var(--nav-h);
+  background:
+    radial-gradient(circle at 42% 58%, rgba(124,50,40,.24), transparent 26%),
+    radial-gradient(circle at 3% 70%, rgba(93,26,24,.34), transparent 28%),
+    linear-gradient(110deg, #4a1718 0%, #2c0e0f 53%, #381011 100%);
+}
+.ddc-contours{
+  position:absolute; inset:2% -7% -7% 27%; width:88%; height:108%;
+  z-index:-1; opacity:.16; pointer-events:none;
+}
+.ddc-shell{ width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter); }
+.ddc-main{
+  display:grid; grid-template-columns:minmax(0,1.03fr) minmax(520px,.97fr);
+  gap:clamp(44px, 6vw, 112px); align-items:center;
+  min-height:calc(100svh - var(--nav-h)); padding:68px 0 72px;
+}
+.ddc-copy{
+  align-self:stretch; display:flex; flex-direction:column; justify-content:center;
+  min-width:0; padding-bottom:18px;
+}
+.ddc-copy > div:first-child{ padding-top:clamp(3rem, 15vh, 11rem); }
+.ddc-kicker{
+  margin:0 0 26px; font-family:var(--serif); color:var(--gold-lt);
+  font-size:clamp(12px, .92vw, 16px); letter-spacing:.2em; text-transform:uppercase;
+}
+.ddc-short-rule{ width:46px; height:2px; background:var(--gold-lt); margin-bottom:42px; }
+.ddc-title{
+  margin:0; font-family:var(--serif); font-size:clamp(46px, 4.6vw, 54px);
+  line-height:.95; font-weight:400; letter-spacing:-.03em; color:var(--cream); max-width:780px;
+}
+.ddc-title em{
+  display:block; color:var(--gold-lt); font-weight:500; font-style:italic;
+  margin-top:8px; white-space:nowrap;
+}
+.ddc-intro{
+  margin:44px 0 0; font-family:var(--serif);
+  font-size:clamp(19px, 1.6vw, 25px); line-height:1.34; max-width:620px;
+  color:rgba(245,237,224,.94);
+}
+.ddc-meta-bottom{ margin-top:auto; padding-top:64px; width:min(500px, 85%); }
+.ddc-meta-bottom::before{
+  content:""; display:block; height:1px; width:100%; margin-bottom:19px;
+  background:rgba(184,146,74,.55);
+}
+.ddc-meta-words{
+  display:flex; align-items:center; flex-wrap:wrap; gap:13px;
+  font-family:var(--serif); color:var(--gold-lt);
+  font-size:clamp(12px, .92vw, 16px); letter-spacing:.2em; text-transform:uppercase;
+}
+.ddc-meta-words .dot{ opacity:.8; transform:translateY(-1px); }
+.ddc-visual-wrap{
+  position:relative; width:100%; max-width:680px; justify-self:end; padding-right:54px;
+}
+.ddc-photo-frame{
+  position:relative; padding:6px; border:1px solid var(--gold-lt);
+  background:rgba(12,6,6,.38); box-shadow:0 18px 55px rgba(0,0,0,.20);
+}
+.ddc-photo-inner{
+  overflow:hidden; border:1px solid rgba(31,17,14,.95); background:#111; aspect-ratio:1.07/1;
+  display:block; width:100%; padding:0; margin:0; cursor:zoom-in;
+  font:inherit; color:inherit; position:relative;
+}
+.ddc-photo-inner:focus-visible{ outline:2px solid var(--gold-lt); outline-offset:4px; }
+.ddc-photo-zoom{
+  position:absolute; right:10px; bottom:10px; width:30px; height:30px;
+  display:grid; place-items:center; border-radius:50%;
+  background:rgba(12,6,6,.62); color:rgba(245,237,224,.92);
+  opacity:0; transform:translateY(4px);
+  transition:opacity .35s var(--ease), transform .35s var(--ease);
+  pointer-events:none;
+}
+.ddc-photo-inner:hover .ddc-photo-zoom,
+.ddc-photo-inner:focus-visible .ddc-photo-zoom{ opacity:1; transform:none; }
+.ddc-photo-zoom svg{ width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:1.6; }
+
+/* ---------- lightbox ---------- */
+.lightbox{
+  position:fixed; inset:var(--nav-h) 0 0 0;      /* the site's header stays visible above it */
+  z-index:500; display:none;
+  background:
+    radial-gradient(circle at 42% 58%, rgba(124,50,40,.28), transparent 30%),
+    linear-gradient(110deg, #4a1718 0%, #2c0e0f 55%, #381011 100%);
+}
+.lightbox.open{ display:block; }
+.lightbox:focus{ outline:none; }
+.lightbox-scroll{
+  width:100%; height:100%; overflow:auto; -webkit-overflow-scrolling:touch;
+  display:grid; place-items:center;
+  padding:clamp(1.25rem,4vw,3rem) clamp(1.25rem,4vw,3rem) clamp(3.5rem,7vh,4.5rem);
+}
+.lightbox-frame{
+  padding:6px; border:1px solid var(--gold-lt);
+  background:rgba(12,6,6,.38); box-shadow:0 18px 55px rgba(0,0,0,.28);
+}
+.lightbox-img{
+  display:block; max-width:100%; max-height:calc(100vh - var(--nav-h) - 11rem);
+  object-fit:contain; cursor:zoom-in;
+  border:1px solid rgba(31,17,14,.95);
+}
+.lightbox.zoomed .lightbox-scroll{ place-items:start; }
+.lightbox.zoomed .lightbox-img{ max-width:none; max-height:none; width:1200px; cursor:zoom-out; }
+.lightbox-cap{
+  margin:.85rem 0 0; text-align:center;
+  font-family:var(--serif); color:var(--gold-lt);
+  font-size:.82rem; letter-spacing:.115em; text-transform:uppercase;
+}
+.lightbox-close{
+  position:absolute; top:clamp(1rem,2.2vh,1.75rem);
+  right:max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));  /* on the page grid */
+  width:46px; height:46px; display:grid; place-items:center;
+  background:none; border:1px solid rgba(184,146,74,.28);
+  color:var(--gold-lt); cursor:pointer; z-index:2;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.lightbox-close:hover{ border-color:var(--gold-lt); background:rgba(184,146,74,.1); }
+.lightbox-close:focus-visible{ outline:2px solid var(--gold-lt); outline-offset:3px; }
+.lightbox-close svg{ width:17px; height:17px; stroke:currentColor; stroke-width:1.5; }
+.lightbox-hint{
+  position:absolute; left:50%; bottom:clamp(.75rem,2.5vh,1.75rem); transform:translateX(-50%);
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  color:rgba(245,237,224,.55); pointer-events:none;
+}
+@media (max-width:620px){
+  .lightbox.zoomed .lightbox-img{ width:1000px; }
+  .lightbox-hint{ display:none; }
+  /* a round, filled control in the corner — unmistakable on a phone,
+     and clear of the photo rather than floating above it */
+  .lightbox-close{
+    top:.65rem; right:.65rem;
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(12,6,6,.72); border-color:rgba(184,146,74,.5);
+  }
+  .lightbox-close:hover{ background:rgba(12,6,6,.72); }
+  .lightbox-close svg{ width:15px; height:15px; }
+  .lightbox-scroll{ padding-top:3.9rem; }
+}
+.ddc-photo-inner img{
+  width:100%; height:100%; display:block; object-fit:cover;
+  object-position:50% 69%;                 /* keeps the sun flare out of frame, no edit to the photo */
+}
+.ddc-caption{
+  margin:12px 8px 0 0; text-align:right; color:var(--gold-lt); font-family:var(--serif);
+  font-size:13px; letter-spacing:.125em; text-transform:uppercase; white-space:nowrap;
+}
+.ddc-coordinates{
+  position:absolute; top:39%; right:-8px; transform:translateY(-50%); height:360px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:rgba(245,237,224,.83); font-family:var(--serif);
+  letter-spacing:.11em; text-transform:uppercase; font-size:13px;
+}
+.ddc-coordinates .coord-text{
+  display:flex; flex-direction:column-reverse; align-items:center; gap:.7rem;
+  color:var(--gold-lt); text-decoration:none;            /* gold reads as a link */
+  padding:.6rem .8rem; margin:-.6rem -.8rem;
+  transition:color .35s var(--ease), opacity .35s var(--ease);
+  opacity:.88;
+}
+.ddc-coordinates .coord-val{
+  writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap;
+  border-block-end:1px solid rgba(184,146,74,.45);       /* a standing underline, not hover-only */
+  padding-inline-end:3px;
+}
+.ddc-coordinates .coord-pin{ width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.5; flex:0 0 auto; }
+.ddc-coordinates a.coord-text:hover,
+.ddc-coordinates a.coord-text:focus-visible{ color:var(--gold-lt); opacity:1; }
+.ddc-coordinates a.coord-text:focus-visible{ outline:1px solid var(--gold-lt); outline-offset:4px; }
+.ddc-coordinates::after{
+  content:""; display:block; width:1px; height:78px; margin-top:22px; background:rgba(184,146,74,.55);
+}
+
+@media (max-width:1440px){
+  .ddc-title{ font-size:clamp(38px, 3.7vw, 60px); }
+}
+/* between here and 1080 the two columns get too narrow to hold the headline,
+   so the layout stacks instead of squeezing */
+@media (max-width:1400px) and (min-width:1081px){
+  .ddc-main{ gap:clamp(36px, 4vw, 64px); }
+  .ddc-visual-wrap{ padding-right:34px; max-width:560px; }
+  .ddc-intro{ font-size:clamp(18px, 1.5vw, 22px); }
+}
+@media (max-width:1080px){
+  .ddc-hero{ min-height:auto; }
+  .ddc-main{
+    grid-template-columns:1fr; gap:44px;
+    min-height:auto; padding:48px 0 60px;
+  }
+  /* let the copy's children sit directly in the grid so the photo can come
+     between the intro and the values line */
+  .ddc-copy{ display:contents; }
+  .ddc-copy > div:first-child{ padding-top:0; order:1; }
+  .ddc-visual-wrap{ order:2; }
+  .ddc-meta-bottom{ order:3; margin-top:0; }
+  .ddc-title{ max-width:none; font-size:clamp(36px, 6.1vw, 50px); }
+  .ddc-title em{ white-space:normal; }
+  .ddc-intro{ font-size:clamp(18px, 2.4vw, 21px); margin-top:30px; }
+  .ddc-meta-bottom{ padding-top:40px; width:100%; }
+  .ddc-visual-wrap{ max-width:520px; justify-self:start; padding-right:34px; }
+  .ddc-coordinates{
+    position:static; transform:none; height:auto;
+    display:block; text-align:right; margin-top:.55rem;
+  }
+  .ddc-coordinates::after{ display:none; }
+  .ddc-coordinates .coord-text{
+    display:inline-flex; flex-direction:row; align-items:center; gap:.5rem;
+    padding:.7rem .25rem; margin:0; font-size:12px; letter-spacing:.09em;
+  }
+  .ddc-coordinates .coord-val{ writing-mode:horizontal-tb; transform:none; padding-inline-end:0; }
+  .ddc-photo-inner{ aspect-ratio:1.2/1; }
+}
+@media (max-width:620px){
+  .ddc-main{ padding:26px 0 30px; gap:26px; }
+  .ddc-kicker{ font-size:11px; margin-bottom:16px; letter-spacing:.14em; }
+  .ddc-short-rule{ margin-bottom:24px; }
+  .ddc-title{ font-size:clamp(32px, 8.6vw, 43px); }
+  .ddc-title em{ white-space:normal; }
+  .ddc-intro{ font-size:18px; margin-top:24px; }
+  .ddc-meta-bottom{ width:100%; padding-top:24px; }
+  .ddc-meta-words{ font-size:11px; gap:8px; letter-spacing:.14em; }
+  @media (max-width:340px){ .ddc-meta-words{ letter-spacing:.08em; gap:6px; } }
+  .ddc-visual-wrap{ padding-right:23px; max-width:none; }
+  .ddc-photo-frame{ padding:4px; }
+  .ddc-photo-inner{ aspect-ratio:1.12/1; }
+  .ddc-caption{ white-space:normal; font-size:11px; text-align:right; }
+  .ddc-coordinates .coord-text{ font-size:11px; letter-spacing:.07em; padding:.78rem .25rem; }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  /* tall crops lose the dark tree on the left, so cover more broadly */
+  .hero-scrim{
+    background:
+      linear-gradient(to bottom, rgba(15,4,4,.84) 0%, rgba(15,4,4,.6) 20%, rgba(15,4,4,.34) 44%, rgba(15,4,4,.12) 74%),
+      linear-gradient(to right, rgba(15,4,4,.92) 0%, rgba(15,4,4,.74) 44%, rgba(15,4,4,.44) 76%, rgba(15,4,4,.22) 100%),
+      radial-gradient(ellipse 115% 62% at 24% 40%, rgba(15,4,4,.62) 0%, transparent 80%);
+  }
+  .philosophy-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .philosophy-head{ grid-template-columns:1fr; gap:2.25rem; }
+  .philosophy-figure{ max-width:520px; }
+}
+
+@media (max-width:900px){
+  :root{ --nav-h:62px; }
+  .nav-links{ display:none; }
+  .nav-toggle{ display:flex; }
+  .hero-aside{ display:none; }
+  .hero{ min-height:88vh; min-height:88svh; }
+  .hero-inner{ max-width:none; }
+  .story{ grid-template-columns:1fr; gap:2.5rem; }
+  .story-figure{ max-width:520px; }
+  .wine-entry{ grid-template-columns:1fr; gap:1.75rem; align-items:start; }
+  .wine-entry > div{ justify-self:stretch; }
+  .wine-scene{ max-width:520px; }
+  .wine-scene, .wine-bottle{ order:-1; }
+  .wine-scene::after{ background:none; }
+  .wine-bottle{ height:clamp(230px, 46vw, 320px); justify-self:center; }
+  .wine-bottle img{ width:auto; }
+  .contact-inner{ grid-template-columns:1fr; gap:3rem; }
+}
+
+@media (max-width:480px){
+  .nav-logo{ font-size:.78rem; letter-spacing:.03em; }
+  .nav-right{ gap:.75rem; }
+  .nav-sep{ display:none; }
+  .lang-toggle{ gap:.15rem; }
+  .lang-btn{ padding:.7rem .42rem; min-width:42px; font-size:.64rem; letter-spacing:.1em; }
+  .hero-micro{ font-size:.62rem; letter-spacing:.2em; }
+  .hero-scrim{
+    background:
+      linear-gradient(to bottom, rgba(15,4,4,.86) 0%, rgba(15,4,4,.66) 26%, rgba(15,4,4,.46) 50%, rgba(15,4,4,.3) 100%),
+      radial-gradient(ellipse 130% 58% at 30% 36%, rgba(15,4,4,.56) 0%, transparent 80%);
+  }
+  .footer-inner{ flex-direction:column; align-items:flex-start; text-align:left; }
+}
+
+@media (max-width:560px){
+  body{ font-size:.97rem; }
+  .philosophy-grid{ grid-template-columns:1fr; gap:1.5rem; }
+  .wine-entry-header{ gap:.6rem; }
+  .contact-quote{ text-align:left; }
+  .quote-rule{ justify-content:flex-start; }
+  .quote-rule::before{ display:none; }
+}
+
+/* ============ PRINT ============ */
+@media print{
+  body{ background:#fff; color:#000; }
+  body::before, .top-bar, #mainNav, .mobile-menu, .hero-aside, .hero-vine{ display:none !important; }
+  .hero{ min-height:auto; padding:2rem 0; }
+  .hero-media, .hero-scrim{ display:none; }
+  .hero-title, .hero-sub, .hero-micro{ color:#000; }
+  .wines-section, .contact-section, footer{ background:#fff; }
+  .wine-entry-name, .contact-left h2, .contact-vigneron-name, .footer-logo{ color:#000; }
+  .contact-quote blockquote{ color:#333; }
+  .wine-entry p:not(.wine-cepages), .contact-left > p, .form-note{ color:#333; }
+  .plate img{ max-height:9cm; }
+  a[href^="http"]::after, a[href^="mailto"]::after{ content:" (" attr(href) ")"; font-size:.75em; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip t" href="#main" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
+
+<nav id="mainNav" aria-label="Principal">
+  <a href="#home" class="nav-logo">Domaine <span class="logo-sm">des</span> Chênes <span class="logo-sm">LB</span></a>
+
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#story"   class="t" data-fr="L'Histoire"  data-en="The Story">L'Histoire</a></li>
+      <li><a href="#wines"   class="t" data-fr="Les Vins"    data-en="The Wines">Les Vins</a></li>
+      <li><a href="#contact" class="t" data-fr="Nous écrire" data-en="Write to us">Nous écrire</a></li>
+    </ul>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <div class="lang-toggle" role="group" aria-label="Language / Langue">
+      <button class="lang-btn" id="btnFR" type="button" aria-pressed="true" lang="fr">FR</button>
+      <button class="lang-btn" id="btnEN" type="button" aria-pressed="false" lang="en">EN</button>
+    </div>
+  </div>
+
+  <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">
+    <span class="sr-only t" id="navToggleLabel" data-fr="Ouvrir le menu" data-en="Open menu">Ouvrir le menu</span>
+    <span class="nav-toggle-bars" aria-hidden="true">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Mobile">
+    <ul>
+      <li><a href="#story"   class="t" data-fr="L'Histoire"  data-en="The Story">L'Histoire</a></li>
+      <li><a href="#wines"   class="t" data-fr="Les Vins"    data-en="The Wines">Les Vins</a></li>
+      <li><a href="#contact" class="t" data-fr="Nous écrire" data-en="Write to us">Nous écrire</a></li>
+    </ul>
+  </nav>
+  <p class="mobile-menu-foot">
+    <a href="mailto:domaine.chenes@gmail.com">domaine.chenes@gmail.com</a>
+  </p>
+</div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="ddc-hero" id="home" aria-label="Domaine des Chênes">
+    <svg class="ddc-contours" viewBox="0 0 1200 900" aria-hidden="true">
+          <g fill="none" stroke="#c99a50" stroke-width="1.05">
+            <path d="M68 198 C214 70 335 93 456 128 C576 162 640 110 753 106 C886 101 964 193 1195 111"/>
+            <path d="M40 228 C199 100 330 123 445 155 C565 190 641 140 760 136 C899 131 977 220 1210 139"/>
+            <path d="M21 261 C189 133 324 153 435 184 C557 218 643 169 768 165 C914 160 994 246 1226 169"/>
+            <path d="M6 296 C178 169 315 184 426 213 C550 246 646 200 777 196 C928 191 1010 272 1245 203"/>
+            <path d="M10 341 C183 218 311 222 419 250 C540 280 646 241 787 236 C945 231 1024 303 1238 247"/>
+            <path d="M29 388 C196 277 314 264 421 291 C537 320 644 290 795 282 C959 274 1042 335 1220 291"/>
+            <path d="M63 441 C216 349 320 310 431 332 C540 354 641 343 800 330 C966 316 1053 371 1193 341"/>
+            <path d="M112 499 C249 424 339 359 453 373 C554 386 645 399 806 380 C970 361 1057 412 1162 397"/>
+            <path d="M183 561 C304 500 371 413 487 419 C583 424 662 452 818 436 C967 420 1051 459 1125 459"/>
+            <path d="M254 620 C365 570 411 470 527 469 C617 469 681 501 831 491 C964 480 1039 509 1082 518"/>
+            <path d="M330 684 C432 641 448 531 563 523 C646 518 698 552 842 551 C948 549 1018 568 1052 582"/>
+            <path d="M408 747 C500 710 489 596 597 578 C675 565 719 600 850 611 C938 618 994 625 1028 642"/>
+            <path d="M493 806 C576 778 537 657 626 634 C698 615 744 649 853 673 C925 688 976 686 1011 700"/>
+          </g>
+        </svg>
+
+    <div class="ddc-shell">
+      <div class="ddc-main">
+        <div class="ddc-copy reveal">
+          <div>
+            <p class="ddc-kicker t" data-fr="Micro-cuvée <span aria-hidden=&quot;true&quot;>·</span> Mont-Liban <span aria-hidden=&quot;true&quot;>·</span> Depuis 2018" data-en="Micro-cuvée <span aria-hidden=&quot;true&quot;>·</span> Mount Lebanon <span aria-hidden=&quot;true&quot;>·</span> Since 2018">Micro-cuvée <span aria-hidden="true">·</span> Mont-Liban <span aria-hidden="true">·</span> Depuis 2018</p>
+            <div class="ddc-short-rule" aria-hidden="true"></div>
+
+            <h1 class="ddc-title t" data-fr="Des vignes d&#8217;altitude.<em>Un vin sans artifice.</em>" data-en="Vines at altitude.<em>Wine without artifice.</em>">Des vignes d&#8217;altitude.<em>Un vin sans artifice.</em></h1>
+
+            <p class="ddc-intro t" data-fr="Une cave familiale. Un seul vignoble.<br>Quelques centaines de bouteilles par an." data-en="A family cellar. A single vineyard.<br>A few hundred bottles a year.">Une cave familiale. Un seul vignoble.<br>Quelques centaines de bouteilles par an.</p>
+          </div>
+
+          <div class="ddc-meta-bottom">
+            <div class="ddc-meta-words t" data-fr="<span>Famille</span><span class=&quot;dot&quot;>·</span><span>Artisanat</span><span class=&quot;dot&quot;>·</span><span>Authenticité</span>" data-en="<span>Family</span><span class=&quot;dot&quot;>·</span><span>Craft</span><span class=&quot;dot&quot;>·</span><span>Authenticity</span>"><span>Famille</span><span class="dot">·</span><span>Artisanat</span><span class="dot">·</span><span>Authenticité</span></div>
+          </div>
+        </div>
+
+        <div class="ddc-visual-wrap reveal">
+          <figure style="margin:0">
+            <div class="ddc-photo-frame">
+              <button type="button" class="ddc-photo-inner" id="photoBtn"
+                      aria-label="Agrandir la photo du vignoble">
+                <picture>
+                  <source srcset="hero.webp" type="image/webp">
+                  <img src="hero.jpg" width="1200" height="1600" fetchpriority="high" decoding="async"
+                       class="ta" data-alt-fr="Le vignoble familial du Domaine des Chênes au Mont-Liban, juillet 2021"
+                       data-alt-en="The family vineyard of Domaine des Chênes in Mount Lebanon, July 2021"
+                       alt="Le vignoble familial du Domaine des Chênes au Mont-Liban, juillet 2021">
+                </picture>
+                <span class="ddc-photo-zoom" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2M11 8v6M8 11h6" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+            </div>
+            <figcaption class="ddc-caption t" data-fr="Notre vignoble <span aria-hidden=&quot;true&quot;>·</span> Juillet 2021" data-en="Our vineyard <span aria-hidden=&quot;true&quot;>·</span> July 2021">Notre vignoble <span aria-hidden="true">·</span> Juillet 2021</figcaption>
+          </figure>
+
+          <div class="ddc-coordinates">
+            <a class="coord-text" href="https://www.google.com/maps?q=33.931472,35.775528"
+               target="_blank" rel="noopener"
+               aria-label="Voir le vignoble sur la carte — 33 degrés 55 minutes 53,3 secondes nord, 35 degrés 46 minutes 31,9 secondes est">
+              <svg class="coord-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4"/></svg>
+              <span class="coord-val">33°55′53.3″N — 35°46′31.9″E</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story-section" id="story">
+    <div class="wrap story">
+      <div class="reveal">
+        <span class="label t" data-fr="L'Histoire" data-en="The Story">L'Histoire</span>
+        <h2 class="t" data-fr="Là où le mont Sannine veille sur les vignes" data-en="Where Mount Sannine watches over the vines">Là où le mont Sannine veille sur les vignes</h2>
+        <p class="t" data-fr="Nos vignes sont situées à 1 100 mètres d'altitude au Mont-Liban, au sein d'une forêt de chênes face au Mont Sannine, où nos raisins biologiques sont cultivés et récoltés soigneusement à la main." data-en="Our vineyards lie at 1,100 metres in Mount Lebanon, within an oak forest facing Mount Sannine, where our organic grapes are grown and harvested carefully by hand.">Nos vignes sont situées à 1 100 mètres d'altitude au Mont-Liban, au sein d'une forêt de chênes face au Mont Sannine, où nos raisins biologiques sont cultivés et récoltés soigneusement à la main.</p>
+        <p class="t" data-fr="Les vins sont élaborés en micro-cuvées selon des méthodes traditionnelles, avec une fermentation reposant uniquement sur les levures indigènes des raisins, sans additifs ni sulfites." data-en="The wines are crafted in micro-cuvées using traditional methods, with fermentation relying on the grapes' indigenous yeasts without additives or sulfites.">Les vins sont élaborés en micro-cuvées selon des méthodes traditionnelles, avec une fermentation reposant uniquement sur les levures indigènes des raisins, sans additifs ni sulfites.</p>
+        <p class="t" data-fr="Chaque bouteille est une expression silencieuse, destinée à révéler le caractère de son cépage et de son terroir." data-en="Each bottle is a quiet expression, intended to reveal the character of its grape and terroir.">Chaque bouteille est une expression silencieuse, destinée à révéler le caractère de son cépage et de son terroir.</p>
+      </div>
+
+      <figure class="story-figure reveal">
+        <div class="plate plate--portrait">
+          <picture>
+            <source srcset="vineyard-winter.webp" type="image/webp">
+            <img src="vineyard-winter.jpg" width="900" height="1200" loading="lazy" decoding="async"
+                 class="ta" data-alt-fr="Le vignoble sous la neige, février 2021"
+                 data-alt-en="The vineyard under snow, February 2021"
+                 alt="Le vignoble sous la neige, février 2021">
+          </picture>
+        </div>
+        <figcaption class="t" data-fr="Février 2021" data-en="February 2021">Février 2021</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy-section" id="philosophy">
+    <div class="wrap">
+      <span class="label t reveal" data-fr="Notre philosophie" data-en="Our philosophy">Notre philosophie</span>
+      <div class="philosophy-head">
+        <h2 class="philosophy-lead t reveal" data-fr="Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif." data-en="In its purest form, natural wine is simply fermented grape juice — with nothing added.">Dans sa forme la plus pure, le vin naturel n'est que du jus de raisin fermenté — sans aucun additif.</h2>
+        <figure class="philosophy-figure reveal">
+          <div class="plate plate--square">
+          <picture>
+            <source srcset="harvest.webp" type="image/webp">
+            <img src="harvest.jpg" width="760" height="760" loading="lazy" decoding="async"
+                 class="ta" data-alt-fr="Raisins pendant la vendange, août 2019"
+                 data-alt-en="Grapes during harvest, August 2019"
+                 alt="Raisins pendant la vendange, août 2019">
+          </picture>
+          </div>
+          <figcaption class="t" data-fr="Août 2019" data-en="August 2019">Août 2019</figcaption>
+        </figure>
+      </div>
+
+      <div class="philosophy-grid">
+        <div class="philo-item reveal">
+          <span class="philo-key t" data-fr="Culture" data-en="Farming">Culture</span>
+          <p class="t" data-fr="Biologique, souvent biodynamique. Cycles lunaires, permaculture, respect du vivant dans chaque décision au vignoble." data-en="Organic, often biodynamic. Lunar cycles, permaculture — every decision in the vineyard guided by respect for living things.">Biologique, souvent biodynamique. Cycles lunaires, permaculture, respect du vivant dans chaque décision au vignoble.</p>
+        </div>
+        <div class="philo-item reveal">
+          <span class="philo-key t" data-fr="Vendange" data-en="Harvest">Vendange</span>
+          <p class="t" data-fr="Exclusivement à la main. Pas de machine, pas de précipitation. Chaque grappe est choisie au bon moment." data-en="Exclusively by hand. No machines, no rushing. Every bunch picked at the right moment.">Exclusivement à la main. Pas de machine, pas de précipitation. Chaque grappe est choisie au bon moment.</p>
+        </div>
+        <div class="philo-item reveal">
+          <span class="philo-key t" data-fr="Fermentation" data-en="Fermentation">Fermentation</span>
+          <p class="t" data-fr="Spontanée, avec les seules levures indigènes présentes sur les peaux des raisins. Aucune levure commerciale ajoutée." data-en="Spontaneous, using only the wild native yeasts living on the grape skins. No added cultured yeasts.">Spontanée, avec les seules levures indigènes présentes sur les peaux des raisins. Aucune levure commerciale ajoutée.</p>
+        </div>
+        <div class="philo-item reveal">
+          <span class="philo-key t" data-fr="Sans" data-en="Without">Sans</span>
+          <p class="t" data-fr="Pas de sulfites. Pas d'additifs chimiques. Pas d'enzymes. Pas de collage industriel." data-en="No sulfites. No chemical additives. No enzymes. No industrial fining.">Pas de sulfites. Pas d'additifs chimiques. Pas d'enzymes. Pas de collage industriel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINES -->
+  <section class="wines-section" id="wines">
+    <div class="wrap">
+      <div>
+        <span class="label label--dark t reveal" data-fr="Ce que nous faisons" data-en="What we make">Ce que nous faisons</span>
+        <h2 class="wines-intro t reveal" data-fr="Deux vins. Deux expressions d'un même terroir — chacun fidèle à ses cépages, chacun façonné par la même main." data-en="Two wines. Two expressions of the same terroir — each faithful to its grapes, each shaped by the same hand.">Deux vins. Deux expressions d'un même terroir — chacun fidèle à ses cépages, chacun façonné par la même main.</h2>
+
+        <div class="wines-list">
+        <article class="wine-entry reveal">
+          <figure class="wine-scene">
+            <picture>
+              <source srcset="scene-la-perdix.webp" type="image/webp">
+              <img src="scene-la-perdix.jpg" width="744" height="941" loading="lazy" decoding="async"
+                   class="ta" data-alt-fr="Bouteille de La Perdix posée sur une souche, feuilles de vigne"
+                   data-alt-en="A bottle of La Perdix on a wooden stump, vine leaves behind"
+                   alt="Bouteille de La Perdix posée sur une souche, feuilles de vigne">
+            </picture>
+          </figure>
+          <div>
+          <p class="wine-estate">Domaine <span class="logo-sm">des</span> Chênes</p>
+          <div class="wine-entry-header">
+            <h3 class="wine-entry-name">La Perdix</h3>
+            <p class="wine-cepages">Cabernet Sauvignon · Cabernet Franc</p>
+          </div>
+          <hr class="wine-rule">
+          <span class="wine-entry-type t" data-fr="Structuré · Minéral · Élégant · Profond" data-en="Structured · Mineral · Elegant · Deep">Structuré · Minéral · Élégant · Profond</span>
+          <p class="t" data-fr="Un rouge de vieilles vignes, profond et réservé, où le cassis, la mûre et la cerise noire se mêlent à la violette, au graphite, au cèdre et aux herbes sauvages. Il ne se livre jamais tout de suite : sa structure tannique s'assouplit lentement, révélant au fil des heures une minéralité pierreuse, quelques notes de tabac et de terre, puis une finale droite, profonde et persistante." data-en="A red from old vines, deep and reserved, where blackcurrant, blackberry and black cherry mingle with violet, graphite, cedar and wild herbs. It never reveals itself all at once: its tannic structure softens slowly, revealing over the hours a stony minerality, hints of tobacco and earth, and finally a focused, deep and lingering finish.">Un rouge de vieilles vignes, profond et réservé, où le cassis, la mûre et la cerise noire se mêlent à la violette, au graphite, au cèdre et aux herbes sauvages. Il ne se livre jamais tout de suite : sa structure tannique s'assouplit lentement, révélant au fil des heures une minéralité pierreuse, quelques notes de tabac et de terre, puis une finale droite, profonde et persistante.</p>
+          </div>
+        </article>
+
+        <article class="wine-entry reveal">
+          <figure class="wine-scene">
+            <picture>
+              <source srcset="scene-zenith.webp" type="image/webp">
+              <img src="scene-zenith.jpg" width="834" height="821" loading="lazy" decoding="async"
+                   class="ta" data-alt-fr="Bouteille de Zénith posée sur une souche, feuilles de vigne"
+                   data-alt-en="A bottle of Zénith on a wooden stump, vine leaves behind"
+                   alt="Bouteille de Zénith posée sur une souche, feuilles de vigne">
+            </picture>
+          </figure>
+          <div>
+          <p class="wine-estate">Domaine <span class="logo-sm">des</span> Chênes</p>
+          <div class="wine-entry-header">
+            <h3 class="wine-entry-name">Zénith</h3>
+            <p class="wine-cepages">Syrah · Malbec</p>
+          </div>
+          <hr class="wine-rule">
+          <span class="wine-entry-type t" data-fr="Velouté · Épicé · Généreux · Intense" data-en="Velvety · Spiced · Generous · Intense">Velouté · Épicé · Généreux · Intense</span>
+          <p class="t" data-fr="Un rouge sombre et généreux, où la mûre sauvage, la prune noire et la myrtille rencontrent la violette, le poivre noir et les épices, sur un fond légèrement fumé et cacaoté. Ample et velouté, il garde pourtant une belle tension, puis s'étire dans une finale longue et profonde, entre fruit mûr, épices et puissance contenue." data-en="A dark, generous red, where wild blackberry, black plum and blueberry melt into violet, black pepper and spice, with a subtle smoky, cocoa note lingering in the background. It unfolds slowly on the palate, broad and velvety, yet keeps a fine tension, then stretches into a long, deep finish, somewhere between ripe fruit, spice and restrained power.">Un rouge sombre et généreux, où la mûre sauvage, la prune noire et la myrtille rencontrent la violette, le poivre noir et les épices, sur un fond légèrement fumé et cacaoté. Ample et velouté, il garde pourtant une belle tension, puis s'étire dans une finale longue et profonde, entre fruit mûr, épices et puissance contenue.</p>
+          </div>
+        </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="wrap contact-inner">
+      <div class="contact-left reveal">
+        <span class="label label--dark t" data-fr="Vous nous avez trouvés" data-en="You found us">Vous nous avez trouvés</span>
+        <h2 class="t" data-fr="Écrivez-nous.<br>On vous répond<br><em>en personne</em>." data-en="Write to us.<br>We reply<br><em>personally</em>.">Écrivez-nous.<br>On vous répond<br><em>en personne</em>.</h2>
+        <p class="t" data-fr="Pas de boutique en ligne. Pas de liste d'attente officielle. Juste une conversation — vous nous dites ce que vous cherchez, on vous dit ce qu'on a." data-en="No online shop. No official waiting list. Just a conversation — you tell us what you're looking for, we tell you what we have.">Pas de boutique en ligne. Pas de liste d'attente officielle. Juste une conversation — vous nous dites ce que vous cherchez, on vous dit ce qu'on a.</p>
+
+        <div class="contact-links">
+          <a href="mailto:domaine.chenes@gmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            <span>domaine.chenes@gmail.com</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="contact-quote reveal">
+        <div class="quote-rule" aria-hidden="true"><span class="quote-mark">“</span></div>
+        <blockquote class="t" data-fr="“ Nous répondons à chaque message.<br>Parfois le lendemain.<br>Parfois après la vendange. ”" data-en="“ We reply to every message.<br>Sometimes the next day.<br>Sometimes after the harvest. ”">“ Nous répondons à chaque message.<br>Parfois le lendemain.<br>Parfois après la vendange. ”</blockquote>
+        <div class="quote-rule quote-rule--end" aria-hidden="true"><span class="quote-mark">”</span></div>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" tabindex="-1" aria-label="Photo du vignoble">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fermer">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+  </button>
+  <div class="lightbox-scroll" id="lightboxScroll">
+    <figure style="margin:0">
+      <div class="lightbox-frame"><img class="lightbox-img" id="lightboxImg" src="" alt=""></div>
+      <figcaption class="lightbox-cap t" data-fr="Notre vignoble <span aria-hidden=&quot;true&quot;>·</span> Juillet 2021" data-en="Our vineyard <span aria-hidden=&quot;true&quot;>·</span> July 2021">Notre vignoble <span aria-hidden="true">·</span> Juillet 2021</figcaption>
+    </figure>
+  </div>
+  <p class="lightbox-hint t" data-fr="Cliquer pour zoomer · Échap pour fermer" data-en="Click to zoom · Esc to close">Cliquer pour zoomer · Échap pour fermer</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Domaine <span class="logo-sm">des</span> Chênes <span class="logo-sm">LB</span></div>
+    <div class="footer-meta">
+      <span class="t" data-fr="Vin naturel · Liban · Depuis 2018" data-en="Natural wine · Lebanon · Since 2018">Vin naturel · Liban · Depuis 2018</span>
+      <a href="mailto:domaine.chenes@gmail.com">domaine.chenes@gmail.com</a>
+      <span>&copy;&nbsp;<span id="year">2025</span></span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Winery",
+  "name":"Domaine des Chênes LB",
+  "description":"Cave familiale de vin naturel à 1 100 m d'altitude au Mont-Liban. Micro-cuvées, vendange à la main, sans sulfites ni additifs.",
+  "email":"domaine.chenes@gmail.com",
+  "foundingDate":"2018",
+  "address":{"@type":"PostalAddress","addressRegion":"Mont-Liban","addressCountry":"LB"},
+  "makesOffer":[
+    {"@type":"Offer","itemOffered":{"@type":"Product","name":"La Perdix","description":"Cabernet Sauvignon · Cabernet Franc"}},
+    {"@type":"Offer","itemOffered":{"@type":"Product","name":"Zénith","description":"Syrah · Malbec"}}
+  ]
+}
+</script>
+
+<script>
+document.documentElement.classList.add('js');
+
+(function () {
+  'use strict';
+
+  /* ---------- language ---------- */
+  var META = {
+    fr: {
+      title: "Domaine des Chênes LB — Vin naturel du Mont-Liban",
+      desc:  "Domaine des Chênes LB — cave familiale de vin naturel à 1 100 m d'altitude au Mont-Liban. Micro-cuvées, vendange à la main, sans sulfites ni additifs."
+    },
+    en: {
+      title: "Domaine des Chênes LB — Natural wine from Mount Lebanon",
+      desc:  "Domaine des Chênes LB — a family cellar making natural wine at 1,100 m in Mount Lebanon. Micro-cuvées, hand-harvested, no sulfites or additives."
+    }
+  };
+
+  var btnFR = document.getElementById('btnFR');
+  var btnEN = document.getElementById('btnEN');
+  var metaDesc = document.getElementById('metaDesc');
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('.t').forEach(function (el) {
+      var val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+
+    document.querySelectorAll('.ta').forEach(function (el) {
+      var val = el.getAttribute('data-alt-' + lang);
+      if (val !== null) el.setAttribute('alt', val);
+    });
+
+    btnFR.setAttribute('aria-pressed', String(lang === 'fr'));
+    btnEN.setAttribute('aria-pressed', String(lang === 'en'));
+
+    document.title = META[lang].title;
+    if (metaDesc) metaDesc.setAttribute('content', META[lang].desc);
+  }
+
+  btnFR.addEventListener('click', function () { setLang('fr'); });
+  btnEN.addEventListener('click', function () { setLang('en'); });
+
+  /* ---------- mobile menu ---------- */
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  var toggleLabel = document.getElementById('navToggleLabel');
+  var body = document.body;
+
+  function setMenu(open) {
+    body.classList.toggle('menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+    body.style.overflow = open ? 'hidden' : '';
+
+    var lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+    var labels = {
+      fr: { open: 'Ouvrir le menu', close: 'Fermer le menu' },
+      en: { open: 'Open menu', close: 'Close menu' }
+    };
+    toggleLabel.textContent = open ? labels[lang].close : labels[lang].open;
+    toggleLabel.setAttribute('data-fr', open ? labels.fr.close : labels.fr.open);
+    toggleLabel.setAttribute('data-en', open ? labels.en.close : labels.en.open);
+  }
+
+  setMenu(false);
+  toggle.addEventListener('click', function () {
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' || e.target === menu) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && body.classList.contains('menu-open')) {
+      setMenu(false);
+      toggle.focus();
+    }
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900 && body.classList.contains('menu-open')) setMenu(false);
+  });
+
+  /* ---------- photo lightbox ---------- */
+  (function () {
+    var btn    = document.getElementById('photoBtn');
+    var box    = document.getElementById('lightbox');
+    var img    = document.getElementById('lightboxImg');
+    var scroll = document.getElementById('lightboxScroll');
+    var close  = document.getElementById('lightboxClose');
+    if (!btn || !box) return;
+
+    var lastFocus = null;
+
+    function open() {
+      var src = btn.querySelector('img');
+      img.src = src.currentSrc || src.src;
+      img.alt = src.alt;
+      lastFocus = document.activeElement;
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      box.focus({ preventScroll: true });
+    }
+
+    function shut() {
+      box.classList.remove('open', 'zoomed');
+      document.body.style.overflow = '';
+      scroll.scrollTop = 0; scroll.scrollLeft = 0;
+      if (lastFocus) lastFocus.focus();
+    }
+
+    function toggleZoom() {
+      var was = box.classList.toggle('zoomed');
+      if (was) {
+        /* centre the zoomed image rather than starting at the corner */
+        scroll.scrollLeft = (scroll.scrollWidth  - scroll.clientWidth)  / 2;
+        scroll.scrollTop  = (scroll.scrollHeight - scroll.clientHeight) / 2;
+      }
+    }
+
+    btn.addEventListener('click', open);
+    close.addEventListener('click', shut);
+    img.addEventListener('click', toggleZoom);
+    box.addEventListener('click', function (e) { if (e.target === scroll) shut(); });
+    document.addEventListener('keydown', function (e) {
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape') shut();
+      if (e.key === 'Tab') { e.preventDefault(); close.focus(); }   /* keep focus inside */
+    });
+  })();
+
+  /* ---------- reveal on scroll ---------- */
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry, i) {
+        if (!entry.isIntersecting) return;
+        setTimeout(function () { entry.target.classList.add('visible'); }, i * 70);
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ---------- year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
