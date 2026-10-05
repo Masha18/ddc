@@ -23,6 +23,7 @@
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231a0707'/%3E%3Cpath d='M46 12C36 20 24 18 26 28c2 10 16 7 13 17-3 10-17 7-15 17' fill='none' stroke='%23b8924a' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='30' cy='23' r='5' fill='none' stroke='%23b8924a' stroke-width='2.5'/%3E%3Ccircle cx='36' cy='42' r='6' fill='none' stroke='%23b8924a' stroke-width='2.5'/%3E%3C/svg%3E">
 
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://masha18.github.io/ddc/">
 <link rel="preload" as="image" href="hero.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -354,7 +355,17 @@ figure figcaption{
   display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
   gap:clamp(2rem, 5vw, 4.5rem); align-items:center;
 }
-.wine-scene{ margin:0; position:relative; }
+.wine-scene{ margin:0; position:relative; overflow:hidden; border-radius:var(--img-radius); }
+/* images settle in rather than snapping */
+.js img[data-fade]{ opacity:0; transition:opacity .4s var(--ease); }
+.js img[data-fade].loaded{ opacity:1; }
+
+/* a slow drift on hover — long enough that you feel it rather than see it.
+   declared after the fade so the shorthand keeps both transitions */
+.wine-scene img, .js .wine-scene img[data-fade]{
+  transition:opacity .4s var(--ease), transform 7s cubic-bezier(.4,0,.3,1);
+}
+.wine-scene:hover img{ transform:scale(1.035); }
 .wine-scene img{
   width:100%; height:auto; display:block;
   aspect-ratio:4/5; object-fit:cover; object-position:center;
@@ -531,6 +542,8 @@ footer{
     transition-duration:.01ms !important;
   }
   .js .reveal{ opacity:1; transform:none; }
+  .wine-scene img, .wine-scene:hover img{ transition:none; transform:none; }
+  .js img[data-fade]{ opacity:1; transition:none; }
   .hero-media{ transform:none; }
 }
 
@@ -1223,6 +1236,21 @@ document.documentElement.classList.add('js');
   window.addEventListener('resize', function () {
     if (window.innerWidth > 900 && body.classList.contains('menu-open')) setMenu(false);
   });
+
+  /* ---------- images settle in as they load ---------- */
+  (function () {
+    var imgs = document.querySelectorAll('.ddc-photo-inner img, .plate img, .philosophy-figure img, .wine-scene img');
+    for (var i = 0; i < imgs.length; i++) {
+      var im = imgs[i];
+      im.setAttribute('data-fade', '');
+      if (im.complete && im.naturalWidth > 0) {
+        im.classList.add('loaded');                 /* already cached — no flash */
+      } else {
+        im.addEventListener('load',  function () { this.classList.add('loaded'); });
+        im.addEventListener('error', function () { this.classList.add('loaded'); });
+      }
+    }
+  })();
 
   /* ---------- photo lightbox ---------- */
   (function () {
